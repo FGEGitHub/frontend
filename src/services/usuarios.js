@@ -16,7 +16,7 @@ const usuarios = async () => {
     }
     const request = await axios.get(baseUrl, config)
     let dataa = request.data
-   
+   console.log(dataa)
 
     return dataa
      

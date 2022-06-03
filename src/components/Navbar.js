@@ -1,37 +1,72 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import { Container } from "@mui/material";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import logo from "../Assets/marcas.png";
+import {
+  AppBar,
+  Button,
+  Tab,
+  Tabs,
+  Toolbar,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import DrawerNav from "./DrawerNav";
 
-import { useNavigate, Link } from "react-router-dom";
 
-export default function ButtonAppBar() {
+const Navbar = (props) => {
+  const [user, setUser] = useState(null)
+  const [value, setValue] = useState();
+  const theme = useTheme();
+  console.log(theme);
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  const islogo = {
+                  width: "100px",                  
+                  };
   const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/login");
+  };
+
+  console.log(isMatch);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="transparent">
-        <Container>
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Link to="/" style={{ textDecoration: "none", color: '#eee'}}>
-                PERN Stack
-              </Link>
-            </Typography>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => navigate("/login")}
-            >
-             Iniciar sesion
-            </Button>
-     
-          </Toolbar>
-        </Container>
+    <React.Fragment>
+      <AppBar sx={{ background: "#Primary" }}>
+        <Toolbar>
+            <img style={islogo} src={logo} alt="logo" />
+          {isMatch ? (
+            <>
+              <DrawerNav />
+            </>
+          ) : (
+            <>
+              <Tabs
+                sx={{ marginLeft: "auto" }}
+                indicatorColor="Secondary"
+                textColor="inherit"
+                value={value}
+                onChange={(e, value) => setValue(value)}
+              >
+                <Tab label="Inicio" />
+                <Tab label="Nosotros" />
+                <Tab label="Contacto" />
+                <Tab label="Ayuda" />
+              </Tabs>
+              <Button onClick={handleClick} sx={{ marginLeft: "auto" }} variant="contained">
+                Ingresar
+              </Button>
+              <Button sx={{ marginLeft: "10px" }} variant="contained">
+                Registrarse
+              </Button>
+               <Button onClick={props.hanleLogout} sx={{ marginLeft: "10px" }} variant="contained">
+                Logout
+              </Button> 
+            </>
+          )}
+        </Toolbar>
       </AppBar>
-    </Box>
+    </React.Fragment>
   );
-}
+};
+
+export default Navbar;

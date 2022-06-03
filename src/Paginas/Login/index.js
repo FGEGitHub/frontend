@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
   CircularProgress,
-  Paper, 
+  Paper,
   Avatar,
   Link
 } from "@mui/material";
@@ -20,14 +20,14 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import 'antd/dist/antd.css'
 import servicioUsuario from '../../services/usuarios'
 import Checkbox from '@mui/material/Checkbox';
-
+import Menu from "../../components/Navbar";
 
 
 
 
 const Login = () => {
 
-
+  const [loginVisible, setLoginvisible] = useState(false)
   const [usuario, setUsuario] = useState({
     cuil_cuit: "",
     password: "",
@@ -41,21 +41,21 @@ const Login = () => {
   const navigate = useNavigate();
   const params = useParams();
 
-useEffect(()=> {
-  const loggedUserJSON = window.localStorage.getItem('loggedNoteAppUser')
-  if (loggedUserJSON){
-    const user =JSON.parse(loggedUserJSON)
-    setUser(user)
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedNoteAppUser')
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON)
+      setUser(user)
+      servicioUsuario.setToken(user.token)
+    }
+  }, [])
+
+
+  const hanleLogout = () => {
+    setUser(null)
     servicioUsuario.setToken(user.token)
+    window.localStorage.removeItem('loggedNoteAppUser')
   }
-},[])
-
-
-const hanleLogout = () =>{
-  setUser(null)
-  servicioUsuario.setToken(user.token)
-  window.localStorage.removeItem('loggedNoteAppUser')
-}
 
   const loginSubmit = async (event) => {
     event.preventDefault();
@@ -88,72 +88,84 @@ const hanleLogout = () =>{
   const handleChange = (e) =>
     setUsuario({ ...usuario, [e.target.name]: e.target.value });
 
-    const paperStyle={padding :20,height:'70vh',width:280, margin:"20px auto"}
-    const avatarStyle={backgroundColor:'#2196f3'}
-    const btnstyle={margin:'8px 0'}
+
+
+  const paperStyle = { padding: 20, height: '70vh', width: 280, margin: "20px auto" }
+  const avatarStyle = { backgroundColor: '#2196f3' }
+  const btnstyle = { margin: '8px 0' }
 
   const LoginReturn = () => (
 
-    <Grid>
-      <Paper elevation={10} style={paperStyle}>
-        <Grid align='center'>
-          <Avatar style={avatarStyle}><LockOutlinedIcon /></Avatar>
-          <h2>Ingresar</h2>
-        </Grid>
-        <form onSubmit={loginSubmit}>
-                          <TextField
-                              variant="filled"
-                              label="Cuil/cuit"
-                              sx={{
-                                  display: "block",
-                                  margin: ".5rem 0",
-                              }}
-                              name="cuil_cuit"
-                              onChange={handleChange}
-                              value={usuario.cuil_cuit}
-                              inputProps={{ style: { color: "white" } }}
-                              InputLabelProps={{ style: { color: "white" } }}
-                          />
-                          <TextField
-                              variant="outlined"
-                              label="Password"
-                              sx={{
-                                  display: "block",
-                                  margin: ".5rem 0",
-                              }}
-                              name="password"
-                              onChange={handleChange}
-                              value={usuario.password}
-                              inputProps={{ style: { color: "white" } }}
-                              InputLabelProps={{ style: { color: "white" } }}
-                          />
-  
-                          <Button
-                              type="submit"
-                              variant="contained"
-                              color="primary"
-                             /*  disabled={!usuario.cuil_cuit || !usuario.password} */
-                          >
-                              {loading ? (
-                                  <CircularProgress color="inherit" size={25} />
-                              ) : (
-                                  "Save"
-                              )}
-                          </Button>
-                      </form>
-        <Typography >
-          <Link href="#" >
-            Forgot password ?
-          </Link>
-        </Typography>
-        <Typography > Do you have an account ?
-          <Link href="#" >
-            Sign Up
-          </Link>
-        </Typography>
-      </Paper>
-    </Grid>
 
+    <div>
+  
+      <div>
+        <Button></Button>
+      </div>
+    <div>
+        <Grid>
+          <Paper elevation={10} style={paperStyle}>
+            <Grid align='center'>
+              <Avatar style={avatarStyle}><LockOutlinedIcon /></Avatar>
+              <h2>Ingresar</h2>
+            </Grid>
+            <form onSubmit={loginSubmit}>
+              <TextField
+                variant="filled"
+                label="Cuil/cuit"
+                sx={{
+                  display: "block",
+                  margin: ".5rem 0",
+                }}
+                name="cuil_cuit"
+                onChange={handleChange}
+                value={usuario.cuil_cuit}
+                inputProps={{ style: { color: "white" } }}
+                InputLabelProps={{ style: { color: "white" } }}
+              />
+              <TextField
+                variant="outlined"
+                label="Password"
+                sx={{
+                  display: "block",
+                  margin: ".5rem 0",
+                }}
+                name="password"
+                onChange={handleChange}
+                value={usuario.password}
+                inputProps={{ style: { color: "white" } }}
+                InputLabelProps={{ style: { color: "white" } }}
+              />
+
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+              /*  disabled={!usuario.cuil_cuit || !usuario.password} */
+              >
+                {loading ? (
+                  <CircularProgress color="inherit" size={25} />
+                ) : (
+                  "Save"
+                )}
+              </Button>
+            </form>
+            <Typography >
+              <Link href="#" >
+                Forgot password ?
+              </Link>
+            </Typography>
+            <Typography > Do you have an account ?
+              <Link href="#" >
+                Sign Up
+              </Link>
+            </Typography>
+          </Paper>
+        </Grid>
+      </div>
+
+
+    </div>
   )
 
   /*   const onFinish = (values) => {
@@ -167,11 +179,22 @@ const hanleLogout = () =>{
   return (
 
     <>
-
+     {  <Menu
+        hanleLogout={hanleLogout}
+      /> }
+          <div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Button onClick={()=> setLoginvisible(true)} >Ver </Button>
+      </div>
 
       {user ?
         <Guardar />
-        : LoginReturn()}
+        : 
+        loginVisible 
+        ?LoginReturn():<div></div>}
 
 
 
