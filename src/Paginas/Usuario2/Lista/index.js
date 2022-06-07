@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // import DeleteModal from "./DeleteModal";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, CardContent, Typography } from "@mui/material";
-import usuariosService from '../../services/usuarios'
+import usuariosService from '../../../services/usuarios'
 
 const Lista = () => {
     const [usuarios, setUsuarios] = useState([]);

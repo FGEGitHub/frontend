@@ -76,7 +76,7 @@ const Login = () => {
       setUser(user)
 
       setLoading(false);
-
+        navigate('/')
     } catch (error) {
       console.error(error);
       console.log('error credenciales')
