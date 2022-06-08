@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import MUIDataTable from "mui-datatables";
-import servicioClientes from '../services/clientes'
+import servicioClientes from '../services/lotes'
 
 const Lotes = () => {
     //configuracion de Hooks
@@ -20,24 +20,39 @@ const Lotes = () => {
     useEffect(() => {
         getClients()
     }, [])
+    
     // definimos las columnas
     const columns = [
         {
-            name: "id",
-            label: "ID",
+            name: "zona",
+            label: "Zona",
         },
         {
-            name: "cuil_cuit",
-            label: "Cuil/cuit",
-        },
-        {
-            name: "Nombre",
-            label: "Nombre",
+            name: "fraccion",
+            label: "Fraccion",
+            
             
         },
         {
-            name: "domicilio",
-            label: "Domicilio",
+            name: "manzana",
+            label: "Manzana",
+            
+        },
+        {
+            name: "lote",
+            label: "Lote",
+        },
+        {
+            name: "parcela",
+            label: "Parcela",
+        },
+         {
+            name: "nombre_razon",
+            label: "Nombre/Razon",
+        },
+        {
+            name: "cuil_cuit",
+            label: "Cuil/Cuit",
         },
        
     ];

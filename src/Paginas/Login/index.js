@@ -76,10 +76,23 @@ const Login = () => {
       setUser(user)
 
       setLoading(false);
-        navigate('/')
+
+      console.log(user.nivel)
+      switch(user.nivel){
+        case 1: navigate('/nivel1')
+          break;
+          case 2:navigate('/usuario2/clientes')
+          break;
+          case 3:navigate('/nivel3')
+          break;
+
+      }
     } catch (error) {
       console.error(error);
       console.log('error credenciales')
+      window.location.reload(true);
+      alert('error credenciales')
+    
     }
 
   };
@@ -120,8 +133,8 @@ const Login = () => {
                 name="cuil_cuit"
                 onChange={handleChange}
                 value={usuario.cuil_cuit}
-                inputProps={{ style: { color: "white" } }}
-                InputLabelProps={{ style: { color: "white" } }}
+                inputProps={{ style: { color: "black" } }}
+                InputLabelProps={{ style: { color: "black" } }}
               />
               <TextField
                 variant="outlined"
@@ -133,8 +146,8 @@ const Login = () => {
                 name="password"
                 onChange={handleChange}
                 value={usuario.password}
-                inputProps={{ style: { color: "white" } }}
-                InputLabelProps={{ style: { color: "white" } }}
+                inputProps={{ style: { color: "black" } }}
+                InputLabelProps={{ style: { color: "black" } }}
               />
 
               <Button
@@ -182,19 +195,10 @@ const Login = () => {
      {  <Menu
         hanleLogout={hanleLogout}
       /> }
-          <div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <Button onClick={()=> setLoginvisible(true)} >Ver </Button>
-      </div>
-
-      {user ?
-        <Guardar />
-        : 
-        loginVisible 
-        ?LoginReturn():<div></div>}
+  
+<br></br><br></br><br></br>
+  
+        {LoginReturn()}
 
 
 

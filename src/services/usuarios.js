@@ -3,12 +3,12 @@ const baseUrl = 'http://localhost:4000/prueba'
 let token = null
 
 const setToken = newToken =>{
-    console.log(newToken)
+    
     token = `Bearer ${newToken}`
 }
 
 const usuarios = async () => {
-    console.log(token)
+   
    const config = {
         headers:{
             Authorization:token
@@ -16,7 +16,7 @@ const usuarios = async () => {
     }
     const request = await axios.get(baseUrl, config)
     let dataa = request.data
-   console.log(dataa)
+   console.log('hola')
 
     return dataa
      

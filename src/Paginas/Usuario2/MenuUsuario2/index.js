@@ -21,26 +21,31 @@ import TableAxios from '../../../components/Table';
 import { useNavigate } from "react-router-dom";
 import Login from "../../Login"
 import servicioUsuario from '../../../services/usuarios'
+
 const drawerWidth = 240;
 
 export default function MenuUsuario2() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null)
+
   useEffect(() => {
+    
     const loggedUserJSON = window.localStorage.getItem('loggedNoteAppUser')
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON)
       setUser(user)
-      servicioUsuario.setToken(user.token)  
+      servicioUsuario.setToken(user.token) 
+
       
-    }
+    } 
     if (user){
       navigate('/login')
     }
+
+    //
   }, [])
 
   
-
 
   let path =''
 
@@ -84,11 +89,7 @@ export default function MenuUsuario2() {
   return (
     <>
  
-     { !user?
-      <Login />
 
-   
-     :<div>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
@@ -141,7 +142,7 @@ export default function MenuUsuario2() {
         <TableAxios />
       </Box>
     </Box>
-    </div> }
+    
    
     </>
   );

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import  { useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,13 +17,32 @@ import NfcIcon from '@mui/icons-material/Nfc';
 import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
-import TableAxios from '../../../components/Table';
+import TableAxios from '../../../components/Lotes';
 import { useNavigate } from "react-router-dom";
+import servicioUsuario from '../../../services/usuarios'
 
 const drawerWidth = 240;
 
 export default function Lotes() {
   const navigate = useNavigate();
+  const [nivel, setNivel] = useState(null)
+  const [user, setUser] = useState(null)
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedNoteAppUser')
+    
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON)
+      setUser(user)
+      servicioUsuario.setToken(user.token)  
+      const nivel= user.nivel
+      setNivel(nivel)
+   
+      
+    }
+    if (user){
+      navigate('/login')
+    }
+  }, [])
   const handleClick = (path) => {
     navigate(path);
   }; 
