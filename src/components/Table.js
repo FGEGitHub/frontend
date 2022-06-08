@@ -9,7 +9,7 @@ const Lotes = () => {
     const [clients, setClients] = useState([]);
 
  
-
+const  onClick=()=>alert()
 
     const getClients = async () => {
         
@@ -26,6 +26,7 @@ const Lotes = () => {
         {
             name: "id",
             label: "ID",
+            options:{onClick:(event,rowData)=>alert()}
         },
         {
             name: "cuil_cuit",
@@ -50,18 +51,15 @@ const Lotes = () => {
                     title={"Lista de Clientes"}
                     data={clients}
                     columns={columns}
-                    actions={[
-                        {
+                    actions=
+                        {[{
                         label: "Domicilio",
                         icon: 'edit',
                         tooltip:'Acceder al cliente',
-                        onClick:(event,rowData)=>alert()
-                    }]
-
-                    }
-                    options={{
-                        actionsColumnIndex: -1
-                    }}
+                       // onClick:(event,rowData)=>alert()
+                    }]}
+                   
+                    options={onClick}
                     />
                     </div>
             )
