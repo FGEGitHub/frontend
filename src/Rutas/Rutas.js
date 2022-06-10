@@ -1,6 +1,6 @@
 /* import NotFound from '../Paginas/Notfound'; */
 import Login from '../Paginas/Login';
-import Dashboard from '../Paginas/Usuario2/Dashboard';
+import DetalleCliente from '../Paginas/Usuario2/DetalleCliente';
 import Lista from '../Paginas/Usuario2/Lista';
 import Clientes from '../Paginas/Usuario2/MenuUsuario2';
 import Lotes from '../Paginas/Usuario2/Lotes';
@@ -10,7 +10,7 @@ import Usuario1 from "../Paginas/usuario1/menuusuario1";
 ///////////
 
 //////////
-const user = {} 
+
 
 
 const Rutas = [
@@ -23,7 +23,7 @@ const Rutas = [
 	{ path: '/usuario2/clientes', element: <Clientes /> },
 	{ path: '/usuario2/lotes', element: <Lotes /> },
 	{ path: '/usuario/menu', element: < Usuario1 /> },
-	{ path: '/dashboard', element: <Dashboard /> },
+	{ path: '/usuario2/detallecliente/:cuil_cuit', element: <DetalleCliente /> },
 
 
 	/*{	path: '/',	element: <NotFound />

@@ -1,32 +1,54 @@
 import { useState, useEffect } from "react";
-
 import MUIDataTable from "mui-datatables";
 import servicioClientes from '../services/clientes'
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import EditIcon from "@material-ui/icons/Edit";
+import SearchIcon from '@mui/icons-material/Search';
+//import overbookingData from "./overbooking";
 
 const Lotes = () => {
     //configuracion de Hooks
     const [clients, setClients] = useState([]);
+    const navigate = useNavigate();
 
- 
-const  onClick=()=>alert()
+
+    
 
     const getClients = async () => {
-        
-     const  clients = await servicioClientes.lista({
-      
-      })
-      setClients(clients)}
+
+        const clients = await servicioClientes.lista({
+
+        })
+        setClients(clients)
+    }
 
     useEffect(() => {
         getClients()
     }, [])
+
+    ///
+
+
+
+    function CutomButtonsRenderer(dataIndex, rowIndex, data, onClick) {
+        return (
+          <>
+            <EditIcon
+              onClick={() => onClick(data[dataIndex].id, dataIndex)}
+              style={{ marginRight: "10px", cursor: "pointer" }}
+            />
+            <SearchIcon style={{ cursor: "pointer" }} 
+            onClick={() =>  navigate('/usuario2/detallecliente/'+clients[dataIndex].cuil_cuit)  }//Navigate('usuario2/detallecliente'+clients[dataIndex].cuil_cuit)
+            />
+          </>
+        );
+      }
     // definimos las columnas
     const columns = [
         {
             name: "id",
             label: "ID",
-            options:{onClick:(event,rowData)=>alert()}
+
         },
         {
             name: "cuil_cuit",
@@ -35,34 +57,57 @@ const  onClick=()=>alert()
         {
             name: "Nombre",
             label: "Nombre",
-            
+
         },
         {
             name: "domicilio",
             label: "Domicilio",
+            actions: { onClick: (event, rowData) => alert(rowData) }
         },
+        {
+            name: "Actions",
+            options: {
+                customBodyRenderLite: (dataIndex, rowIndex) =>
+                    CutomButtonsRenderer(
+                        dataIndex,
+                        rowIndex,
+                       // overbookingData,
+                       // handleEditOpen
+                    )
+            }
         
-       
-    ];
-    // renderiza la data table
-            return (
-                <div>
-                <MUIDataTable
-                    title={"Lista de Clientes"}
-                    data={clients}
-                    columns={columns}
-                    actions=
-                        {[{
-                        label: "Domicilio",
-                        icon: 'edit',
-                        tooltip:'Acceder al cliente',
-                       // onClick:(event,rowData)=>alert()
-                    }]}
-                   
-                    options={onClick}
-                    />
-                    </div>
-            )
-    }
+        },   
+ 
 
-    export default Lotes;
+    ];
+
+const options = {
+
+    /*    rowsPerPage: 10,
+       download: false, // hide csv download option
+       onTableInit: this.handleTableInit,
+       onTableChange: this.handleTableChange, */
+};
+// renderiza la data table
+return (
+    <div>
+        <MUIDataTable
+            title={"Lista de Clientes"}
+            data={clients}
+            columns={columns}
+            actions={[
+                {
+                    icon: 'save',
+                    tooltip: 'Save User',
+                    onClick: (event, rowData) => alert("You saved " + rowData.name)
+                }
+            ]}
+            options={options}
+
+
+        />
+    </div>
+)
+}
+
+export default Lotes;
