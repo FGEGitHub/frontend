@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import servicioLotes from '../services/lotes'
 import servicioCuotas from '../services/cuotas'
 import React, { useEffect, useState, Fragment } from "react";
-
+import Cuotascliente from './CuotasCliente';
 import Button from '@mui/material/Button';
 
 
@@ -10,18 +10,25 @@ import Button from '@mui/material/Button';
 
 
 const LotesCliente =(props) => {
+useEffect(() => {
+       
+    traer()
+    
+}, []) 
     const [lotes, setLotes] = useState([''])
-    const [algo, setAlgo] = useState([1,4,6,1,6])
+    const [cuotas, setCuotas] = useState([''])
+   
 
-
-   const vercuotas = async(id) => {
-    console.log(id)
-    const  cuotas = await servicioCuotas.vercuotas(id)
+   const vercuotas = async(index) => {
+    
+    const  cuotas = await servicioCuotas.vercuotas(index)
+    setCuotas(cuotas)
+   return (<h2>index</h2>)
     ;
   }; 
 
     const traer = async () => {
-        
+      console.log('etc')
         const  lotes = await servicioLotes.lotesCliente(props.cuil_cuit)
         console.log(lotes)
         setLotes(lotes)
@@ -33,23 +40,22 @@ const LotesCliente =(props) => {
        
          
    
-       useEffect(() => {
-        console.log('algo')
-           traer()
-           
-       }, [])
+    
     return (
         <Fragment>
             {
                lotes.map((item,index) =>
                   <div>
-                  <Button key= {index} variant="contained">{item['zona']}F{item['fraccion']}M{item['manzana']}L{item['lote']}</Button>
-                  <Button onClick={vercuotas('hola')}>ir</Button>
+                  <Button key= {index} variant="contained"onClick={()=>{vercuotas(item['id'])}}>{item['zona']}F{item['fraccion']}M{item['manzana']}L{item['lote']}</Button>
+                {/*   <Button onClick={()=>{vercuotas(index)}}>ir</Button> */}
                   </div>
                ) 
             }
-
+      {  <Cuotascliente 
+      lotes = {lotes}
+      cuotas = {cuotas} /> }
         </Fragment>
+        
     )
        /*  <List>
         {
