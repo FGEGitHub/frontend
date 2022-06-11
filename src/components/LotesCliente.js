@@ -2,9 +2,9 @@ import { useParams } from "react-router-dom"
 import servicioLotes from '../services/lotes'
 import servicioCuotas from '../services/cuotas'
 import React, { useEffect, useState, Fragment } from "react";
-import Cuotascliente from './CuotasCliente';
-import Button from '@mui/material/Button';
 
+import Button from '@mui/material/Button';
+import MUIDataTable from "mui-datatables";
 
 
 
@@ -17,13 +17,19 @@ useEffect(() => {
 }, []) 
     const [lotes, setLotes] = useState([''])
     const [cuotas, setCuotas] = useState([''])
+    
+
    
 
    const vercuotas = async(index) => {
     
     const  cuotas = await servicioCuotas.vercuotas(index)
-    setCuotas(cuotas)
-   return (<h2>index</h2>)
+    if (cuotas !== ''){setCuotas(cuotas)}
+    
+
+ 
+   
+
     ;
   }; 
 
@@ -38,7 +44,48 @@ useEffect(() => {
         
         }
        
+        const columns = [
+          {
+            name: "mes",
+            label: "Mes",
+           
+        },
+        {
+          name: "anio",
+          label: "Año",
          
+      },
+          
+          {
+              name: "saldo_inicial",
+              label: "Saldo Inicial",
+          },
+          {
+              name: "ICC",
+              label: "ICC",
+  
+          },
+          {
+              name: "cuota_con_ajuste",
+              label: "Cuota con ajuste",
+             
+          },
+          {
+            name: "Saldo_real",
+            label: "Saldo Real",
+           
+        },
+        {
+          name: "Ajuste_ICC",
+          label: "Ajuste ICC",
+         
+      },
+
+  
+          
+   
+  
+      ];    
    
     
     return (
@@ -51,11 +98,29 @@ useEffect(() => {
                   </div>
                ) 
             }
-      {  <Cuotascliente 
-      lotes = {lotes}
-      cuotas = {cuotas} /> }
+
+     
+       <div>
+       <div>
+        <MUIDataTable
+            title={"Lista de Clientes"}
+            data={cuotas}
+            columns={columns}
+            actions={[
+                {
+                    icon: 'save',
+                    tooltip: 'Save User',
+                    onClick: (event, rowData) => alert("You saved " + rowData.name)
+                }
+            ]}
+            
+
+
+        />
+    </div>
+       </div>
         </Fragment>
-        
+       
     )
        /*  <List>
         {

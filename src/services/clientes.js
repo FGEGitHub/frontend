@@ -9,4 +9,11 @@ const lista= async  () => {
     return data 
 }   
 
-export default {lista};
+const cliente= async  (cuil_cuit) => {
+   
+    const {data } = await axios.get('http://localhost:4000/links/detalle/'+cuil_cuit)
+    
+    return data 
+} 
+
+export default {lista, cliente};
