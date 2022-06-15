@@ -16,4 +16,12 @@ const cliente= async  (cuil_cuit) => {
     return data 
 } 
 
-export default {lista, cliente};
+const determinarIngreso= async  (datos) => {
+   console.log(datos)
+  const {data } = await axios.post('http://localhost:4000/links/agregaringreso2/',datos)
+    console.log(data)
+    alert('Guardado con exito')
+    return data 
+} 
+
+export default {lista, cliente, determinarIngreso};

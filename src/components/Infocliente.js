@@ -1,4 +1,4 @@
-
+import React, { useEffect, useState, Fragment } from "react";
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -6,21 +6,40 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import servicioCliente from '../services/clientes'
-import React, { useEffect, useState, Fragment } from "react";
+
 
 
 const Infocliente =(props) => {
     const [cliente, setCliente] = useState([])
+    const [verDetalles, setVerDetalles] = useState(false)
 
     useEffect(() => {
-       
+      
         traer()
         
-    }, []) 
+    }, [])   
+    const mostrar = async() => {
+       
+      const  cliente = await servicioCliente.cliente(props.cuil_cuit)
+      console.log(cliente)
+      setCliente(cliente)
+      setVerDetalles(true)
+  
+   
+     
+  
+      ;
+    };
+
+     const traer = async() => {
+       
 
 
-    const traer = async() => {
-        console.log('1')
+
+
+
+
+      
         const  cliente = await servicioCliente.cliente(props.cuil_cuit)
         console.log(cliente)
         setCliente(cliente)
@@ -29,7 +48,7 @@ const Infocliente =(props) => {
        
     
         ;
-      };
+      }; 
 
 
 const bull = (
@@ -42,10 +61,14 @@ const bull = (
 );
 
 const card = (
+  
+
+
   <React.Fragment>
     <CardContent>
       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-       <p>{cliente[0].Nombre}</p> 
+      
+            <p>{cliente[0].Nombre}</p> 
       </Typography>
       <Typography variant="h5" component="div">
        <label>{cliente[0].domicilio}</label>
@@ -60,14 +83,16 @@ const card = (
       </Typography>
     </CardContent>
    
-  </React.Fragment>
+  </React.Fragment>  
 );
 
 
   return (
+ 
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined">{card}</Card>
     </Box>
+  
   );
 }
 export default Infocliente

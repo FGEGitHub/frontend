@@ -4,7 +4,7 @@ import DetalleCliente from '../Paginas/Usuario2/DetalleCliente';
 import Lista from '../Paginas/Usuario2/Lista';
 import Clientes from '../Paginas/Usuario2/MenuUsuario2';
 import Lotes from '../Paginas/Usuario2/Lotes';
-
+import Agregarcuotas from '../Paginas/Usuario2/AgregarCuotas';
 import NAvBar from "../components/Navbar";
 import Usuario1 from "../Paginas/usuario1/menuusuario1";
 ///////////
@@ -24,6 +24,7 @@ const Rutas = [
 	{ path: '/usuario2/lotes', element: <Lotes /> },
 	{ path: '/usuario/menu', element: < Usuario1 /> },
 	{ path: '/usuario2/detallecliente/:cuil_cuit', element: <DetalleCliente /> },
+	{ path: '/usuario2/agregarcuotas/:id', element: <Agregarcuotas /> },
 
 
 	/*{	path: '/',	element: <NotFound />

@@ -2,14 +2,20 @@ import { useParams } from "react-router-dom"
 import servicioLotes from '../services/lotes'
 import servicioCuotas from '../services/cuotas'
 import React, { useEffect, useState, Fragment } from "react";
-
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import MUIDataTable from "mui-datatables";
-
-
+import TextField from '@mui/material/TextField';
+import { useNavigate } from "react-router-dom";
 
 
 const LotesCliente =(props) => {
+
+  const navigate = useNavigate();
 useEffect(() => {
        
     traer()
@@ -17,21 +23,28 @@ useEffect(() => {
 }, []) 
     const [lotes, setLotes] = useState([''])
     const [cuotas, setCuotas] = useState([''])
-    
+     const [open, setOpen] = React.useState(false);
+     const [estadoCuotas, setestadoCuotas] = useState({
+      anticipo: "",
+      monto: "",
+      cantidad_cuotas: "",
+      
+     
+    })
 
    
-
+   
    const vercuotas = async(index) => {
     
     const  cuotas = await servicioCuotas.vercuotas(index)
     if (cuotas !== ''){setCuotas(cuotas)}
     
-
- 
-   
-
-    ;
   }; 
+  //////////servicioCuotas
+
+
+
+
 
     const traer = async () => {
       console.log('etc')
@@ -89,12 +102,20 @@ useEffect(() => {
    
     
     return (
+      
         <Fragment>
+           
             {
                lotes.map((item,index) =>
                   <div>
                   <Button key= {index} variant="contained"onClick={()=>{vercuotas(item['id'])}}>{item['zona']}F{item['fraccion']}M{item['manzana']}L{item['lote']}</Button>
-                {/*   <Button onClick={()=>{vercuotas(index)}}>ir</Button> */}
+               {/*  <Button  key= {index} variant="contained"onClick={()=>{agregar(item['id'])}}> Agregar Cuotas</Button> */}
+
+                <Button /* variant="outlined"  */key= {index} variant="contained"onClick={()=>{navigate('/usuario2/agregarcuotas/'+item['id'])}} >
+        Agregar cuotas al lote
+      </Button>
+     
+                
                   </div>
                ) 
             }
@@ -102,6 +123,7 @@ useEffect(() => {
      
        <div>
        <div>
+      
         <MUIDataTable
             title={"Lista de Clientes"}
             data={cuotas}
@@ -122,22 +144,7 @@ useEffect(() => {
         </Fragment>
        
     )
-       /*  <List>
-        {
-        lotes.map((item) => (
-            
-            <ListItem 
-              button 
-              key={item.text} 
-              onClick={() => {
-                handleClick(item.path)
-              }}
-            >
-            {/*   <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} /> }
-            </ListItem>
-          ))}
-        </List> */
+
        
 }
 export default LotesCliente

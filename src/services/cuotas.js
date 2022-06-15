@@ -1,5 +1,5 @@
 import axios from 'axios'
-const  baseUrl = 'http://localhost:4000/cuotas/lote/'
+const  baseUrl = 'http://localhost:4000/cuotas/lote2/'
 
 const vercuotas= async  (id) => {
     console.log('servicio')
@@ -9,4 +9,15 @@ const vercuotas= async  (id) => {
     
     return data 
 }  
-export default {vercuotas};
+
+
+const agregarCuotas= async  (estadoCuotas) => {
+  
+   console.log(estadoCuotas)
+    const {data } = await axios.post('http://localhost:4000/cuotas/addaut2/',estadoCuotas)
+    console.log(data)
+    
+   // return data 
+}  
+
+export default {vercuotas,agregarCuotas};
