@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, CardContent, Typography } from "@mui/material";
 import usuariosService from '../../../services/usuarios'
+import  useNoti from '../../../hooks/useNoti'
 
 const Lista = () => {
     const [usuarios, setUsuarios] = useState([]);
     const navigate = useNavigate();
 
     const Leer = async () => {
+     
         try {
             const data = await usuariosService.usuarios({
 
@@ -30,11 +32,13 @@ const Lista = () => {
 
     useEffect(() => {
         Leer();
+ 
     }, []);
 
     return (
         <>
-            <h1>Tasks</h1>
+            
+           
             {usuarios.map((usuario) => (
                 <Card
                     style={{

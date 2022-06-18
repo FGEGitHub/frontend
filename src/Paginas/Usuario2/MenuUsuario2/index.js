@@ -21,15 +21,21 @@ import TableAxios from '../../../components/Table';
 import { useNavigate } from "react-router-dom";
 import Login from "../../Login"
 import servicioUsuario from '../../../services/usuarios'
-
+import NotificacionLegajo from '../../../components/NotificacionesU2'
+import  useNoti from '../../../hooks/useNoti'
+import  useUser from '../../../hooks/useUser'
 const drawerWidth = 240;
 
 export default function MenuUsuario2() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null)
+  const [] = useState('')
+  const {cantidad } = useNoti()
+  const {nombre } = useUser()
 
   useEffect(() => {
-    
+   console.log(nombre)
+   console.log(cantidad)
     const loggedUserJSON = window.localStorage.getItem('loggedNoteAppUser')
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON)
@@ -38,6 +44,8 @@ export default function MenuUsuario2() {
 
       
     } 
+
+
     if (user){
       navigate('/login')
     }
@@ -89,7 +97,7 @@ export default function MenuUsuario2() {
   return (
     <>
  
-
+ <NotificacionLegajo/>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar

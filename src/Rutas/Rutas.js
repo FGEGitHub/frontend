@@ -7,7 +7,8 @@ import Lotes from '../Paginas/Usuario2/Lotes';
 import Agregarcuotas from '../Paginas/Usuario2/AgregarCuotas';
 import NAvBar from "../components/Navbar";
 import Usuario1 from "../Paginas/usuario1/menuusuario1";
-///////////
+/////////// Probando usecontxt
+
 
 //////////
 
@@ -17,8 +18,7 @@ const Rutas = [
 	 <NAvBar/> ,
 
 
-	{path: '/login',
-	 element: (<Login />)},
+	{path: '/login',element: (<Login />)},
 	{ path: '/lista', element: <Lista /> },
 	{ path: '/usuario2/clientes', element: <Clientes /> },
 	{ path: '/usuario2/lotes', element: <Lotes /> },

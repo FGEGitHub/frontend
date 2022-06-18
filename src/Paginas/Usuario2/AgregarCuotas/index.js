@@ -64,7 +64,7 @@ export default function MenuUsuario2() {
     event.preventDefault();
     try {
 
-        await servicioCuotas.agregarCuotas({
+        const respuesta = await servicioCuotas.agregarCuotas({
             anticipo: estadoCuotas.anticipo,
             monto_total:  estadoCuotas.monto_total,
             cantidad_cuotas: estadoCuotas.cantidad_cuotas,
@@ -73,7 +73,8 @@ export default function MenuUsuario2() {
             id:id
           
        })
-   
+       alert(respuesta)
+       navigate('/usuario2/clientes')
        
        } catch (error) {
          console.error(error);

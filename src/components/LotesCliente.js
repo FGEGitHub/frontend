@@ -35,7 +35,7 @@ useEffect(() => {
    
    
    const vercuotas = async(index) => {
-    
+    console.log('ver cuotas')
     const  cuotas = await servicioCuotas.vercuotas(index)
     if (cuotas !== ''){setCuotas(cuotas)}
     
