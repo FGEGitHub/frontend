@@ -19,7 +19,8 @@ const DetalleCliente =() => {
     <div>
        
 
-{/* {  <InfoCliente  cuil_cuit={cuil_cuit}/> } */}
+{/* {   <InfoCliente  cuil_cuit={cuil_cuit}/>  } */}
+
     {    <LotesCliente 
     cuil_cuit={cuil_cuit}
     />

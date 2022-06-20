@@ -18,33 +18,15 @@ const Infocliente =(props) => {
         traer()
         
     }, [])   
-    const mostrar = async() => {
-       
-      const  cliente = await servicioCliente.cliente(props.cuil_cuit)
-      console.log(cliente)
-      setCliente(cliente)
-      setVerDetalles(true)
   
-   
-     
-  
-      ;
-    };
 
      const traer = async() => {
        
-
-
-
-
-
-
       
         const  cliente = await servicioCliente.cliente(props.cuil_cuit)
         console.log(cliente)
         setCliente(cliente)
     
-     
        
     
         ;
@@ -60,39 +42,38 @@ const bull = (
   </Box>
 );
 
-const card = (
-  
 
 
-  <React.Fragment>
-    <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-      
-            <p>{cliente[0].Nombre}</p> 
-      </Typography>
-      <Typography variant="h5" component="div">
-       <label>{cliente[0].domicilio}</label>
-      </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-      <label>{cliente[0].observaciones}</label>
-      </Typography>
-      <Typography variant="body2">
-      Ingresos declarados:<label>{cliente[0].ingresos}</label>
-        <br />
-        {'"a benevolent smile"'}
-      </Typography>
-    </CardContent>
-   
-  </React.Fragment>  
-);
-
-
-  return (
+if (cliente === null){
+  return (<h3>ssss</h3>)}else {
+    return  (
  
-    <Box sx={{ minWidth: 275 }}>
-      <Card variant="outlined">{card}</Card>
-    </Box>
-  
-  );
+      <Box sx={{ minWidth: 275 }}>
+        <Card variant="outlined">
+        <React.Fragment>
+      <CardContent>
+        <Typography sx={{ fontSize: 14 }} /* color="text.secondary" */ gutterBottom>
+        
+              <p>{cliente[0].Nombre}</p> 
+        </Typography>
+        <Typography variant="h5" component="div">
+         <label>{cliente[0].domicilio}</label>
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} /* color="text.secondary" */>
+        <label>{cliente[0].observaciones}</label>
+        </Typography>
+        <Typography variant="body2">
+        Ingresos declarados:<label>{cliente[0].ingresos}</label>
+          <br />
+          {'"a benevolent smile"'}
+        </Typography>
+      </CardContent>
+    
+    </React.Fragment>  
+          </Card>
+      </Box>
+    
+    )
+  }
 }
 export default Infocliente
