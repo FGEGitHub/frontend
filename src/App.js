@@ -19,9 +19,9 @@ useEffect(() => {
 
    const loggedUserJSON = window.localStorage.getItem('loggedNoteAppUser')
    if (loggedUserJSON) {
-     const user = JSON.parse(loggedUserJSON)
-     setUser(user)
-     servicioUsuario.setToken(user.token) 
+     const userContext = JSON.parse(loggedUserJSON)
+     setUserContext(userContext)
+     servicioUsuario.setToken(userContext.token) 
 
      
    } 
@@ -39,7 +39,7 @@ useEffect(() => {
 
 
 
-if (user != null){
+if (userContext != null){
   return (
   <UserContext.Provider value={{userContext, setUserContext}}>
   <NotiContext.Provider value={cantNoti}>

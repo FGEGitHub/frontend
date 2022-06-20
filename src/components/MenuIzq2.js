@@ -17,6 +17,7 @@ import NfcIcon from '@mui/icons-material/Nfc';
 import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+
 const drawerWidth = 240;
 export default function MenuIzq2 ({children}) {
     const navigate = useNavigate();
@@ -25,6 +26,14 @@ export default function MenuIzq2 ({children}) {
         console.log(path)
         navigate(path);
       }; 
+
+       const hanleLogout = () => {
+       /* console.log('click')
+        setUser(null)
+        servicioUsuario.setToken(user.token) */
+        window.localStorage.removeItem('loggedNoteAppUser')
+        window.location.reload(true);
+      } 
     const menuItems = [
         { 
           text: 'Ver Clientes', 
@@ -44,18 +53,19 @@ export default function MenuIzq2 ({children}) {
         {
           text: 'Aprobación de Pagos',
           icon: <PriceCheckIcon color="primary" />,
-          path: '/aprobacion'
+          path: '/usuario2/aprobaciones'
         },
         {
           text: 'Aprobación de CBU',
           icon: <AccountBalanceIcon color="primary" />,
-          path: '/cbu'
+          path: '/usuario2/aprobaciones'
         },
         {
           text: 'Aprobación de Legajos',
           icon: <AssignmentTurnedInIcon color="primary" />,
-          path: '/lejos'
+          path: '/usuario2/aprobaciones'
         },
+     
       ];
 
 
@@ -71,6 +81,7 @@ export default function MenuIzq2 ({children}) {
           <Typography variant="h6" noWrap component="div">
             Fideicomiso Gestion
           </Typography>
+          <button onClick={hanleLogout} sx={{ marginRight: "auto" }}> Boton</button>
         </Toolbar>
       </AppBar>
       <Drawer

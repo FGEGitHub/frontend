@@ -80,8 +80,10 @@ const Login = () => {
       console.log(user.nivel)
       switch(user.nivel){
         case 1: navigate('/usuario/menu')
+        window.location.reload(true);
           break;
           case 2:navigate('/usuario2/clientes')
+                window.location.reload(true);
           break;
           case 3:navigate('/nivel3')
           break;

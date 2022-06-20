@@ -2,7 +2,6 @@ import * as React from 'react';
 import  { useEffect, useState } from "react";
 import TableAxios from '../../../components/Table';
 import { useNavigate } from "react-router-dom";
-import Login from "../../Login"
 import servicioUsuario from '../../../services/usuarios'
 import NotificacionLegajo from '../../../components/NotificacionesU2'
 import  useNoti from '../../../hooks/useNoti'

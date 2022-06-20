@@ -10,7 +10,7 @@ import servicioCliente from '../services/clientes'
 
 
 const Infocliente =(props) => {
-    const [cliente, setCliente] = useState([])
+    /* const [cliente, setCliente] = useState([])
     const [verDetalles, setVerDetalles] = useState(false)
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const Infocliente =(props) => {
        
     
         ;
-      }; 
+      };  */
 
 
 const bull = (
@@ -44,8 +44,7 @@ const bull = (
 
 
 
-if (cliente === null){
-  return (<h3>ssss</h3>)}else {
+
     return  (
  
       <Box sx={{ minWidth: 275 }}>
@@ -54,16 +53,16 @@ if (cliente === null){
       <CardContent>
         <Typography sx={{ fontSize: 14 }} /* color="text.secondary" */ gutterBottom>
         
-              <p>{cliente[0].Nombre}</p> 
+              <p>{props.cliente[0].Nombre}</p> 
         </Typography>
         <Typography variant="h5" component="div">
-         <label>{cliente[0].domicilio}</label>
+         <label>{props.cliente[0].domicilio}</label>
         </Typography>
         <Typography sx={{ mb: 1.5 }} /* color="text.secondary" */>
-        <label>{cliente[0].observaciones}</label>
+        <label>{props.cliente[0].observaciones}</label>
         </Typography>
         <Typography variant="body2">
-        Ingresos declarados:<label>{cliente[0].ingresos}</label>
+        Ingresos declarados:<label>{props.cliente[0].ingresos}</label>
           <br />
           {'"a benevolent smile"'}
         </Typography>
@@ -74,6 +73,6 @@ if (cliente === null){
       </Box>
     
     )
-  }
+  
 }
 export default Infocliente

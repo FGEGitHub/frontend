@@ -3,6 +3,7 @@ import  { useEffect, useState } from "react";
 
 import BarraLAteral from '../../components/MenuIzq2'
 import { useNavigate } from "react-router-dom";
+import Tabla from '../../components/TablaAprobaciones'
 const drawerWidth = 240;
 
 export default function MenuUsuario2() {
@@ -24,7 +25,7 @@ export default function MenuUsuario2() {
   
   return (
  <BarraLAteral>
-    <h1>Hola</h1>
+    <Tabla/>
  </BarraLAteral>
 
   );

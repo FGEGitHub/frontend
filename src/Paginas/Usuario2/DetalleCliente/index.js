@@ -19,7 +19,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import DetalleC from '../../../components/Detallecliente';
 import { useNavigate } from "react-router-dom";
-
+import BarraLAteral from '../../../components/MenuIzq2'
 import servicioUsuario from '../../../services/usuarios'
 import Ingresos from '../../../components/Ingresos'
 
@@ -67,132 +67,9 @@ export default function DetalleCliente() {
 
   ////////
 
-  let path = ''
-
-  const handleClick = (path) => {
-    console.log(path)
-    navigate(path);
-  };
-
-  
-  const menuItems = [
-    {
-      text: 'Ver Clientes',
-      icon: <GroupIcon color="primary" />,
-      path: '/usuario2/clientes'
-    },
-    {
-      text: 'Buscar Clientes',
-      icon: <SearchIcon color="primary" />,
-      path: '/usuario2/clientes'
-    },
-    {
-      text: 'Lotes',
-      icon: <NfcIcon color="primary" />,
-      path: '/usuario2/lotes',
-    },
-    {
-      text: 'Aprobación de Pagos',
-      icon: <PriceCheckIcon color="primary" />,
-      path: '/aprobacion'
-    },
-    {
-      text: 'Aprobación de CBU',
-      icon: <AccountBalanceIcon color="primary" />,
-      path: '/cbu'
-    },
-    {
-      text: 'Aprobación de Legajos',
-      icon: <AssignmentTurnedInIcon color="primary" />,
-      path: '/lejos'
-    },
-  ];
   return (
-    <>
-
-
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        <AppBar
-          position="fixed"
-          sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-        >
-          <Toolbar>
-            <Typography variant="h6" noWrap component="div">
-              Fideicomiso Gestion
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          sx={{
-            width: drawerWidth,
-            flexShrink: 0,
-            '& .MuiDrawer-paper': {
-              width: drawerWidth,
-              boxSizing: 'border-box',
-            },
-          }}
-          variant="permanent"
-          anchor="left"
-        >
-          <Toolbar />
-          <Divider />
-          <List>
-            {menuItems.map((item) => (
-              <ListItem
-                button
-                key={item.text}
-                onClick={() => {
-                  handleClick(item.path)
-                }}
-              >
-                <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.text} />
-              </ListItem>
-            ))}
-          </List>
-
-          <Divider />
-
-        </Drawer>
-        <Box
-          component="main"
-          sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-        >
-          <Toolbar />
-          <br/> <br/> <br/>
-          {<Ingresos/>}
-         {/*  <Button onClick={() => abrirCerrarModal()}> Determinar ingreso</Button>
-          <Modal
-            open={modal}
-            onClose={abrirCerrarModal}>
-            <div style={{position: 'absolute',
-  width: 400,
-  backgroundcolor:'white',
-  border: '2px solid #000',
-
-  padding: '16px 32px 24px',
-  top:'50%',
-  }} >
-      <div align="center">
-        <h2>formulario</h2>
-      </div>
-      <form onSubmit={FormDeterminar}>
-      <TextField label="Nombre"name="ingreso" onChange={handleChange}  />
-      < Button  type="submit">Guardar</Button>
-      </form>
-      
-      <div align="right">
-        
-        <Button onClick={() => abrirCerrarModal()}> Cancelar</Button>
-      </div>
-    </div>
-          </Modal> */}
-          {<DetalleC />}
-        </Box>
-      </Box>
-
-
-    </>
+    <BarraLAteral>
+      {<DetalleC />}
+ </BarraLAteral>
   );
 }
