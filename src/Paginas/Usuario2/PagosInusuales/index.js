@@ -7,7 +7,7 @@ import NotificacionLegajo from '../../../components/NotificacionesU2'
 import  useNoti from '../../../hooks/useNoti'
 import  useUser from '../../../hooks/useUser'
 import BarraLAteral from '../../../components/MenuIzq2'
-import AlertaAprobaciones from '../../../components/AlertaAprobaciones'
+
 
 const drawerWidth = 240;
 
@@ -44,7 +44,7 @@ export default function MenuUsuario2() {
    
     <BarraLAteral>
        
-    <TableAxios/>
+
  </BarraLAteral>
   );
 }

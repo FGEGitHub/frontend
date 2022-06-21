@@ -17,15 +17,21 @@ import NfcIcon from '@mui/icons-material/Nfc';
 import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import AlertaAprobaciones from './AlertaAprobaciones'
+import  useNoti from '../hooks/useNoti'
+import  useInusual from '../hooks/useInusual'
+import AlertaInusual from './AlertaInusual'
 
 const drawerWidth = 240;
 export default function MenuIzq2 ({children}) {
     const navigate = useNavigate();
-
+    const {cantidad } = useNoti()
+    const {cantidadInusual } = useInusual()
     const handleClick = (path) => {
-        console.log(path)
+        
         navigate(path);
       }; 
+    
 
        const hanleLogout = () => {
        /* console.log('click')
@@ -56,9 +62,9 @@ export default function MenuIzq2 ({children}) {
           path: '/usuario2/aprobaciones'
         },
         {
-          text: 'Aprobación de CBU',
+          text: 'Pagos Inusuales',
           icon: <AccountBalanceIcon color="primary" />,
-          path: '/usuario2/aprobaciones'
+          path: '/usuario2/pagosinusuales'
         },
         {
           text: 'Aprobación de Legajos',
@@ -70,7 +76,7 @@ export default function MenuIzq2 ({children}) {
 
 
     return(
-
+      <>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
@@ -121,12 +127,16 @@ export default function MenuIzq2 ({children}) {
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
         <Toolbar />
+        <AlertaInusual
+      cantidadInusual={cantidadInusual} />
+        <AlertaAprobaciones
+      cantidad={cantidad} />
    { children}
       </Box>
     </Box>
     
    
- 
+    </>
   );
 
 }

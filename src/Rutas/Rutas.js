@@ -10,6 +10,8 @@ import Usuario1 from "../Paginas/usuario1/menuusuario1";
 import Aprobaciones from "../Paginas/Aprobaciones"
 import Legajos from "../Paginas/usuario1/Legajos"
 import ingresosDeclarados from "../Paginas/usuario1/IngresosDeclarados"
+import PagosInusuales from "../Paginas/Usuario2/PagosInusuales"
+
 /////////// Probando usecontxt
 
 
@@ -31,6 +33,7 @@ const Rutas = [
 	{ path: '/usuario2/detallecliente/:cuil_cuit', element: <DetalleCliente /> },
 	{ path: '/usuario2/agregarcuotas/:id', element: <Agregarcuotas /> },
 	{ path: '/usuario2/aprobaciones', element: <Aprobaciones /> },
+	{ path: '/usuario2/pagosinusuales', element: <PagosInusuales /> },
 
 
 	/*{	path: '/',	element: <NotFound />

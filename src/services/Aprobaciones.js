@@ -9,6 +9,13 @@ const lista= async  () => {
     return data 
 }   
 
+const cantidad= async  () => {
+   
+  const {data } = await axios.get(baseUrl+'pendientestodas')
+  console.log(data)
+  return data 
+} 
+
 const aprobacion= async  (id) => {
    console.log(id)
   const {data } = await axios.get(baseUrl+'aprobar/'+id)
