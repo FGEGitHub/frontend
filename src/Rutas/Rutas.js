@@ -11,6 +11,9 @@ import Aprobaciones from "../Paginas/Aprobaciones"
 import Legajos from "../Paginas/usuario1/Legajos"
 import ingresosDeclarados from "../Paginas/usuario1/IngresosDeclarados"
 import PagosInusuales from "../Paginas/Usuario2/PagosInusuales"
+import Transferencias from '../Paginas/usuario1/Transferencias';
+
+
 
 /////////// Probando usecontxt
 
@@ -29,6 +32,7 @@ const Rutas = [
 	{ path: '/usuario2/lotes', element: <Lotes /> },
 	{ path: '/usuario/menu', element: < Usuario1 /> },
 	{ path: '/usuario/Legajos', element: < Legajos /> },
+	{ path: '/usuario/transferencias', element: < Transferencias /> },
 	{ path: '/usuario/ingresosdeclarados', element: < ingresosDeclarados /> },
 	{ path: '/usuario2/detallecliente/:cuil_cuit', element: <DetalleCliente /> },
 	{ path: '/usuario2/agregarcuotas/:id', element: <Agregarcuotas /> },

@@ -10,7 +10,7 @@ import servicioAprobaciones from './services/Aprobaciones'
 
 function App () {
   const element = useRoutes(Rutas)
-  const [userContext, setUserContext] = useState(null)
+  const [userContext, setUserContext] = useState()
   const [notiContext, setUserNotiContext] = useState(0)
   const [inusualContext, setUsInusualContext] = useState(0)
 
@@ -23,7 +23,7 @@ useEffect(() => {
    const loggedUserJSON = window.localStorage.getItem('loggedNoteAppUser')
    if (loggedUserJSON) {
      const userContext = JSON.parse(loggedUserJSON)
-     console.log(userContext)
+     
      setUserContext(userContext)
    
      servicioUsuario.setToken(userContext.token) 

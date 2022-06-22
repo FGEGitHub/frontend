@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
+import servicioAprobaciones from '../services/Aprobaciones'
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
 
@@ -18,13 +19,19 @@ export default function FormDialog(props) {
     setOpen(false);
   };
 
+  const rechazar =async (id)  => {
+     await servicioAprobaciones.rechazo(id)
+
+   // window.location.reload(true)
+  }
+
   return (
     <div>
       <ThumbDownAltIcon variant="outlined" onClick={handleClickOpen}>
         Open form dialog
       </ThumbDownAltIcon>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Rechazar{props.id}</DialogTitle>
+        <DialogTitle>Rechazar</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Detalla el motivo de rechazo 
@@ -41,7 +48,7 @@ export default function FormDialog(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Rechazar</Button>
+          <Button onClick={() => {rechazar(props.id)}}>Rechazar</Button>
         </DialogActions>
       </Dialog>
     </div>

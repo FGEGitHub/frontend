@@ -21,14 +21,17 @@ const currencies = [
 
 ];
 
-export default function SelectTextFields() {
+export default function SelectTextFields(props) {
     const [open, setOpen] = React.useState(false);
-    const UserContext  = useUser()
+    const usuario  = useUser().userContext
+    const cuil_cuit=usuario.cuil_cuit
     const [pago, setPago] = useState({
-        ingreso: "",
+      cuil_cuit:cuil_cuit,
+      id: props.id,
        
       })
-      console.log(UserContext)
+    
+     console.log(props.fraccion)
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -44,11 +47,12 @@ export default function SelectTextFields() {
 ////
   const pagar = async (event) => {
     event.preventDefault();
+    console.log(pago)
     try {
 
-      await servicioPagos.determinarIngreso({
-        /* ingresos:ingreso.ingreso,
-        cuil_cuit:cuil_cuit */
+      await servicioPagos.pagar({
+        pago,
+       
         
      })
  
@@ -81,12 +85,13 @@ export default function SelectTextFields() {
       autoComplete="off"
     >
     <Button variant="outlined" onClick={handleClickOpen}>
-        Subir comprobante
+        Subir comprobante Zona {props.zona} Fraccion {props.fraccion} Manzana{props.manzana} Lote {props.id}
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogContent>
             <div>
             <form onSubmit={pagar}>
+            
                 <TextField component="form"
             sx={{
                 '& > :not(style)': { m: 1, width: '25ch' },
@@ -108,6 +113,8 @@ export default function SelectTextFields() {
                     </MenuItem>
                 ))}
                 </TextField>
+               
+
                 <Box
                 component="form"
             sx={{
@@ -116,7 +123,7 @@ export default function SelectTextFields() {
             noValidate
             autoComplete="off"
             >
-            <TextField id="filled-basic" label="Monto" variant="filled" />
+            <TextField  onChange={handleChange} id="filled-basic" label="Monto" name="monto" variant="filled" />
             </Box>
             <Box
                 component="form"
@@ -126,12 +133,17 @@ export default function SelectTextFields() {
             noValidate
             autoComplete="off"
             >
-            <TextField id="filled-basic" label="Lote" variant="filled" />
+       
             </Box>
 
-            
+            <TextField   onChange={handleChange} id="filled-basic" name="mes" label="Mes" variant="filled" />
+            <TextField   onChange={handleChange} id="filled-basic" name="anio" label="Año" variant="filled" />
+           
             <Box sx={{ '& > :not(style)': { m: 1 } }}>
             <TextField
+           
+             onChange={handleChange}
+            name= "fecha"
                 id="date"
                 label="Fecha de pago"
                 type="month"
@@ -142,8 +154,8 @@ export default function SelectTextFields() {
                 }}
             />
             </Box> 
-            <Button onClick={handleClick} size="small" variant="contained">
-                        Subir Comprobante
+            <Button  type="submit" size="small" variant="contained">
+                        Subir Comprobante 
             </Button>
             </form>
                 </div>

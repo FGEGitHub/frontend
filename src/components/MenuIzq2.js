@@ -21,6 +21,7 @@ import AlertaAprobaciones from './AlertaAprobaciones'
 import  useNoti from '../hooks/useNoti'
 import  useInusual from '../hooks/useInusual'
 import AlertaInusual from './AlertaInusual'
+import Navbar from './Navbar'
 
 const drawerWidth = 240;
 export default function MenuIzq2 ({children}) {
@@ -79,7 +80,9 @@ export default function MenuIzq2 ({children}) {
       <>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar
+      <Navbar
+      logout = {{hanleLogout}}/>
+      {/* <AppBar
         position="fixed"
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
@@ -87,9 +90,9 @@ export default function MenuIzq2 ({children}) {
           <Typography variant="h6" noWrap component="div">
             Fideicomiso Gestion
           </Typography>
-          <button onClick={hanleLogout} sx={{ marginRight: "auto" }}> Boton</button>
+          <button  onClick={hanleLogout} sx={{ marginRight: "auto" }}> Boton</button>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       <Drawer
         sx={{
           width: drawerWidth,

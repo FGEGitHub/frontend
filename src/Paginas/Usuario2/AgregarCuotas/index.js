@@ -26,6 +26,7 @@ import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import { useNavigate } from "react-router-dom";
 import servicioCuotas from '../../../services/cuotas'
 import servicioUsuario from '../../../services/usuarios'
+import MenuIzq2 from '../../../components/MenuIzq2';
 
 const drawerWidth = 240;
 
@@ -90,97 +91,13 @@ export default function MenuUsuario2() {
   setestadoCuotas({  ...estadoCuotas, [e.target.name]: e.target.value })
   let path =''
 
-   const handleClick = (path) => {
-    console.log(path)
-    navigate(path);
-  }; 
+ 
   
-  const menuItems = [
-    { 
-      text: 'Ver Clientes', 
-      icon: <GroupIcon color="primary" />, 
-      path: '/usuario2/clientes' 
-    },
-    { 
-      text: 'Buscar Clientes',
-      icon: <SearchIcon color="primary" />, 
-      path: '/usuario2/clientes' 
-    },
-    {
-      text: 'Lotes',
-      icon: <NfcIcon color="primary" />,
-      path:  '/usuario2/lotes',
-    },
-    {
-      text: 'Aprobación de Pagos',
-      icon: <PriceCheckIcon color="primary" />,
-      path: '/aprobacion'
-    },
-    {
-      text: 'Aprobación de CBU',
-      icon: <AccountBalanceIcon color="primary" />,
-      path: '/cbu'
-    },
-    {
-      text: 'Aprobación de Legajos',
-      icon: <AssignmentTurnedInIcon color="primary" />,
-      path: '/lejos'
-    },
-  ];
+
   return (
 
- 
- 
-    <Box sx={{ display: 'flex' }}>
-    <CssBaseline />
-    <AppBar
-      position="fixed"
-      sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-    >
-      <Toolbar>
-        <Typography variant="h6" noWrap component="div">
-          Fideicomiso Gestion
-        </Typography>
-      </Toolbar>
-    </AppBar>
-    <Drawer
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
-          width: drawerWidth,
-          boxSizing: 'border-box',
-        },
-      }}
-      variant="permanent"
-      anchor="left"
-    >
-      <Toolbar />
-      <Divider />
-      <List>
-        {menuItems.map((item) => (
-          <ListItem
-            button
-            key={item.text}
-            onClick={() => {
-              handleClick(item.path)
-            }}
-          >
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.text} />
-          </ListItem>
-        ))}
-      </List>
-
-      <Divider />
-
-    </Drawer>
-    <Box
-      component="main"
-      sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-    >
-      <Toolbar />
-      <br/> <br/> <br/>
+ <MenuIzq2>
+   <br/> <br/> <br/>
       <form  onSubmit={agregarCuotas}> 
           <TextField
             autoFocus
@@ -240,8 +157,8 @@ export default function MenuUsuario2() {
         </DialogActions>
            </form>
 
-    </Box>
-  </Box>
+ </MenuIzq2>
+ 
     
                ) 
          

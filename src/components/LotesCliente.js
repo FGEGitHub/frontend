@@ -47,7 +47,7 @@ useEffect(() => {
 
 
     const traer = async () => {
-      console.log('etc')
+     
         const  lotes = await servicioLotes.lotesCliente(props.cuil_cuit)
         console.log(lotes)
         setLotes(lotes)

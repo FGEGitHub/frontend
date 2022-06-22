@@ -5,6 +5,7 @@ import Footer from '../../../components/usuario1/Footer';
 import Banner from '../../../components/usuario1/Banner'
 import Cards from '../../../components/usuario1/Cards'
 import Faq from '../../../components/usuario1/Faq'
+import Navbar from '../../../components/Navbar'
 
 
 
@@ -20,7 +21,7 @@ export default function MenuUsuario2() {
             <div className="App">
 
 
-               {/*  <Navbar /> */}
+                <Navbar /> 
                 <Banner />
                 <Cards />
                 <Faq />

@@ -26,7 +26,13 @@ const Navbar = (props) => {
   const handleClick = () => {
     navigate("/login");
   };
-
+  const hanleLogout = () => {
+    /* console.log('click')
+     setUser(null)
+     servicioUsuario.setToken(user.token) */
+     window.localStorage.removeItem('loggedNoteAppUser')
+     window.location.reload(true);
+   } 
   console.log(isMatch);
 
   return (
@@ -58,7 +64,7 @@ const Navbar = (props) => {
               <Button sx={{ marginLeft: "10px" }} variant="contained">
                 Registrarse
               </Button>
-               <Button onClick={props.hanleLogout} sx={{ marginLeft: "10px" }} variant="contained">
+               <Button onClick={hanleLogout} sx={{ marginLeft: "10px" }} variant="contained">
                 Logout
               </Button> 
             </>

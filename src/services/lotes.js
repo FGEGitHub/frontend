@@ -12,7 +12,7 @@ const lista= async  () => {
 const lotesCliente= async  (cuil_cuit) => {
  //  console.log(cuil_cuit)
     let {data}  = await axios.get('http://localhost:4000/lotes/lotescliente/'+cuil_cuit)
-    
+    console.log(cuil_cuit)
     const lotes=(data[0])
     console.log(data)
    
@@ -20,4 +20,15 @@ const lotesCliente= async  (cuil_cuit) => {
     return data
 }  
 
-export default {lista, lotesCliente};
+
+const lotesCliente2= async  (cuil_cuit) => {
+    //  console.log(cuil_cuit)
+       let {data}  = await axios.get('http://localhost:4000/lotes/lotescliente2/'+cuil_cuit)
+       console.log(cuil_cuit)
+       const lotes=(data[0])
+       console.log(data)
+      
+      
+       return data
+   }  
+export default {lista, lotesCliente,lotesCliente2};

@@ -1,12 +1,13 @@
 import * as React from 'react';
 import  { useEffect, useState } from "react";
-import TableAxios from '../../../components/Table';
+
 import { useNavigate } from "react-router-dom";
 import servicioUsuario from '../../../services/usuarios'
-import NotificacionLegajo from '../../../components/NotificacionesU2'
+
 import  useNoti from '../../../hooks/useNoti'
 import  useUser from '../../../hooks/useUser'
 import BarraLAteral from '../../../components/MenuIzq2'
+import Tabla from '../../../components/TablaPagosinusuales'
 
 
 const drawerWidth = 240;
@@ -43,7 +44,7 @@ export default function MenuUsuario2() {
   return (
    
     <BarraLAteral>
-       
+       <Tabla/>
 
  </BarraLAteral>
   );
