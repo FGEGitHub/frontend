@@ -8,6 +8,13 @@ const lista= async  () => {
     
     return data 
 }   
+//crear
+const crearCliente= async  (datos) => {
+   
+     const data  = await axios.post('http://localhost:4000/links',datos)
+     
+     return data 
+ } 
 
 const cliente= async  (cuil_cuit) => {
    console.log(cuil_cuit)
@@ -24,4 +31,4 @@ const determinarIngreso= async  (datos) => {
     return data 
 } 
 
-export default {lista, cliente, determinarIngreso};
+export default {lista, cliente, determinarIngreso,crearCliente };

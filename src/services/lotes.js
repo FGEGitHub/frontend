@@ -8,6 +8,18 @@ const lista= async  () => {
     
     return data 
 }  
+const prueba= async  (s) => {
+    await axios.post('http://localhost:4000/lotes/prueba',s)
+  console.log(s)
+    
+   
+}  
+const listalotes= async  () => {
+   
+    const {data } = await axios.get('http://localhost:4000/lotes/listadelotes')
+    
+    return data 
+}  
 
 const lotesCliente= async  (cuil_cuit) => {
  //  console.log(cuil_cuit)
@@ -31,4 +43,4 @@ const lotesCliente2= async  (cuil_cuit) => {
       
        return data
    }  
-export default {lista, lotesCliente,lotesCliente2};
+export default {lista, lotesCliente,lotesCliente2,listalotes,prueba};
