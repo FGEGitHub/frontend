@@ -60,7 +60,7 @@ export default function MenuIzq2 ({children}) {
         {
           text: 'Aprobación de Pagos',
           icon: <PriceCheckIcon color="primary" />,
-          path: '/usuario2/aprobaciones'
+          path: '/usuario2/aprobacionesdepagos'
         },
         {
           text: 'Pagos Inusuales',

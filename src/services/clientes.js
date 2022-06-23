@@ -10,7 +10,7 @@ const lista= async  () => {
 }   
 
 const cliente= async  (cuil_cuit) => {
-   
+   console.log(cuil_cuit)
     const {data } = await axios.get('http://localhost:4000/links/detalle/'+cuil_cuit)
     
     return data 

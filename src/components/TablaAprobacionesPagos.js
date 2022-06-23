@@ -1,29 +1,37 @@
 import { useState, useEffect } from "react";
 import MUIDataTable from "mui-datatables";
-import servicioClientes from '../services/clientes'
+import servicioAprobacionesPagos from '../services/pagos'
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
-import SearchIcon from '@mui/icons-material/Search';
+import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
+import CheckIcon from '@mui/icons-material/Check';
+import BotonRechazo from './RechazoPago'
 //import overbookingData from "./overbooking";
 
-const Lotes = () => {
+const TablaAprobaciones = () => {
     //configuracion de Hooks
-    const [clients, setClients] = useState([]);
+    const [pendientes, setPendientes] = useState([]);
     const navigate = useNavigate();
 
 
     
 
-    const getClients = async () => {
+    const getPendientes = async () => {
 
-        const clients = await servicioClientes.lista({
+        const pendientes = await servicioAprobacionesPagos.aprobaciones({
 
         })
-        setClients(clients)
+        setPendientes(pendientes)
+    }
+
+    const aprobar = async (id) => {
+
+    await servicioAprobacionesPagos.aprobarpago(id)
+    window.location.reload(true)
     }
 
     useEffect(() => {
-        getClients()
+        getPendientes()
     }, [])
 
     ///
@@ -31,14 +39,16 @@ const Lotes = () => {
 
 
     function CutomButtonsRenderer(dataIndex, rowIndex, data, onClick) {
+     
         return (
           <>
-            <EditIcon
-              onClick={() => onClick(data[dataIndex].id, dataIndex)}
-              style={{ marginRight: "10px", cursor: "pointer" }}
+           
+            <BotonRechazo 
+             id= {pendientes[dataIndex].id} 
             />
-            <SearchIcon style={{ cursor: "pointer" }} 
-            onClick={() =>  navigate('/usuario2/detallecliente/'+clients[dataIndex].cuil_cuit)  }//Navigate('usuario2/detallecliente'+clients[dataIndex].cuil_cuit)
+            <CheckIcon style={{ cursor: "pointer" }} 
+            onClick={() =>  {aprobar(pendientes[dataIndex].id) 
+           /*  navigate('/usuario2/detallecliente/'+pendientes[dataIndex].id) */}  }//Navigate('usuario2/detallecliente'+clients[dataIndex].cuil_cuit)
             />
           </>
         );
@@ -50,19 +60,28 @@ const Lotes = () => {
             label: "ID",
 
         },
+    
         {
+            name: "mes",
+            label: "Mes",
+
+        },
+        {
+            name: "anio",
+            label: "Año",
+           
+        },
+            {
             name: "cuil_cuit",
             label: "Cuil/cuit",
         },
         {
-            name: "Nombre",
-            label: "Nombre",
-
+            name: "monto",
+            label: "Monto",
         },
         {
-            name: "domicilio",
-            label: "Domicilio",
-            actions: { onClick: (event, rowData) => alert(rowData) }
+            name: "estado",
+            label: "Estado",
         },
         {
             name: "Actions",
@@ -92,9 +111,8 @@ const options = {
 return (
     <div>
         <MUIDataTable
-        
-            title={"Lista de Clientes"}
-            data={clients}
+            title={"Lista de aprobaciones pendientes"}
+            data={pendientes}
             columns={columns}
             actions={[
                 {
@@ -111,4 +129,4 @@ return (
 )
 }
 
-export default Lotes;
+export default TablaAprobaciones;

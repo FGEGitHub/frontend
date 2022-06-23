@@ -11,6 +11,7 @@ import Aprobaciones from "../Paginas/Aprobaciones"
 import Legajos from "../Paginas/usuario1/Legajos"
 import ingresosDeclarados from "../Paginas/usuario1/IngresosDeclarados"
 import PagosInusuales from "../Paginas/Usuario2/PagosInusuales"
+import AprobacionesPagos from "../Paginas/Usuario2/AprobacionesPagos"
 import Transferencias from '../Paginas/usuario1/Transferencias';
 
 
@@ -37,6 +38,7 @@ const Rutas = [
 	{ path: '/usuario2/detallecliente/:cuil_cuit', element: <DetalleCliente /> },
 	{ path: '/usuario2/agregarcuotas/:id', element: <Agregarcuotas /> },
 	{ path: '/usuario2/aprobaciones', element: <Aprobaciones /> },
+	{ path: '/usuario2/aprobacionesdepagos', element: <AprobacionesPagos /> },
 	{ path: '/usuario2/pagosinusuales', element: <PagosInusuales /> },
 
 

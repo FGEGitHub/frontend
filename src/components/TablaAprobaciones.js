@@ -11,6 +11,7 @@ import BotonRechazo from './RechazoConstancia'
 const TablaAprobaciones = () => {
     //configuracion de Hooks
     const [pendientes, setPendientes] = useState([]);
+    
     const navigate = useNavigate();
 
 

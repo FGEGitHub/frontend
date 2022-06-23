@@ -7,13 +7,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
-import servicioAprobaciones from '../services/Aprobaciones'
+import servicioPagos from '../services/pagos'
 import {  useState } from "react";
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
-  const [form, setForm] = useState ({
+   const [form, setForm] = useState ({
     id:props.id
    })
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -22,18 +23,13 @@ export default function FormDialog(props) {
     setOpen(false);
   };
 
+  const rechazar =async (id)  => {
+     await servicioPagos.rechazararpago(form)
 
-  const rechazar =async (event)  => {
-    event.preventDefault();
-    console.log(form)
-   const respuesta = await servicioAprobaciones.rechazo(form)
-   console.log(respuesta)
-
-  //window.location.reload(true)
- }
- const handleChange = (e) =>
- setForm({  ...form, [e.target.name]: e.target.value })
-
+  // window.location.reload(true)
+  }
+  const handleChange = (e) =>
+  setForm({  ...form, [e.target.name]: e.target.value })
   return (
     <div>
       <ThumbDownAltIcon variant="outlined" onClick={handleClickOpen}>
@@ -53,11 +49,11 @@ export default function FormDialog(props) {
             label="detalle"
             name= "detalle"
             onChange={handleChange}
-          
+            
             fullWidth
             variant="standard"
           />
-           <Button type="submit">Rechazar</Button>
+           <Button onClick={() => {rechazar(props.id)}}>Rechazar</Button>
           </form>
         </DialogContent>
         <DialogActions>

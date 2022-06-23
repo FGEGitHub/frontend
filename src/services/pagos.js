@@ -8,7 +8,30 @@ const pagar= async  (pago) => {
     
   
 }  
+const rechazararpago= async  (form) => {
+ 
+  
+   const {data } = await axios.post(baseUrl+'pagos/rechazarr',form)
+     console.log(data)
+    return data
+   } 
 
+
+const aprobarpago= async  (id) => {
+console.log(id)
+
+  const {data } = await axios.get(baseUrl+'pagos/aprobarr/'+id)
+    console.log(data)
+  return data
+ }  
+
+const aprobaciones= async  () => {
+
+
+ const {data } = await axios.get(baseUrl+'pagos/pendientess')
+   console.log(data)
+ return data
+}  
 
 const pagosinusuales= async  () => {
   
@@ -18,4 +41,4 @@ const pagosinusuales= async  () => {
  return data
 }  
 
-export default { pagar,pagosinusuales};
+export default { pagar,pagosinusuales,aprobaciones,aprobarpago,rechazararpago};

@@ -23,11 +23,11 @@ const aprobacion= async  (id) => {
  
 }   
 
-const rechazo= async  (id) => {
+const rechazo= async  (form) => {
 
-  console.log(id)
-  const {data } = await axios.post(baseUrl+'rechazarr/',{id:id})
-  
+  console.log(form)
+  const data  = await axios.post(baseUrl+'rechazarr/',form)
+  console.log(data)
  
 } 
 
