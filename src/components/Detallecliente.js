@@ -33,7 +33,7 @@ const DetalleCliente = () => {
     }
     return (
         <div>
-   <InfoCliente/>
+  {/*  <InfoCliente/> */}
 
          
             {<LotesCliente

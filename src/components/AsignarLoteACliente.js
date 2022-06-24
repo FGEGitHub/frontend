@@ -1,17 +1,20 @@
 import Button from '@mui/material/Button';
 import { useEffect, useState, Fragment } from "react";
-import servicioLotes from '../services/lotes'
+import servicioClientes from '../services/clientes'
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Card from '@mui/material/Card';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { useParams } from "react-router-dom"
 import NativeSelect from '@mui/material/NativeSelect';
-export default function AsignarLoreACliente() {
-    const [lotes, setLotes] = useState({
 
+export default function AsignarLoreACliente() {
+    let params = useParams()
+    let cuil_cuit = params.cuil_cuit
+    const [lotes, setLotes] = useState({
+        cuil_cuit: cuil_cuit
     })
 
     useEffect(() => {
@@ -20,9 +23,10 @@ export default function AsignarLoreACliente() {
     }, [])
 
     const designar = async (event) => {
-        event.preventDefault();
+    
+        
         console.log(lotes)
-        await servicioLotes.prueba(lotes)
+      await servicioClientes.ventaLote(lotes)
         setLotes(lotes)
 
 
@@ -58,7 +62,7 @@ export default function AsignarLoreACliente() {
                                 id: 'uncontrolled-native',
                                
                             }}
-                        >
+                        >   <option  value={'IC3'}>Elegir</option>
                             <option   value={'PIT'}>Parque Industrial</option>
                             <option  value={'IC3'}>IC3</option>
                          

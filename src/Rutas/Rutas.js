@@ -39,7 +39,7 @@ const Rutas = [
 	{ path: '/usuario/ingresosdeclarados', element: < ingresosDeclarados /> },
 	{ path: '/usuario2/detallecliente/:cuil_cuit', element: <DetalleCliente /> },
 	{ path: '/usuario2/agregarcuotas/:id', element: <Agregarcuotas /> },
-	{ path: '/usuario2/asignarloteausuario', element: <AsignarLoteAUsuario /> },
+	{ path: '/usuario2/asignarloteausuario/:cuil_cuit', element: <AsignarLoteAUsuario /> },
 	{ path: '/usuario2/aprobaciones', element: <Aprobaciones /> },
 	{ path: '/usuario2/aprobacionesdepagos', element: <AprobacionesPagos /> },
 	{ path: '/usuario2/pagosinusuales', element: <PagosInusuales /> },
