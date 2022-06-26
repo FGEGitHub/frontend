@@ -32,7 +32,7 @@ const LotesTransferencia = (props) => {
     return (
 
         <Fragment>
-            <br></br><br></br><br></br><br></br><br></br>
+            <br></br><br></br><br></br><br></br>
             {
                 lotes.map((item, index) =>
                     <div>

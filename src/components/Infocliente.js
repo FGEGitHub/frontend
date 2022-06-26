@@ -53,20 +53,21 @@ const bull = (
   </Box>
 );
 
-if (cliente != undefined){
-  return  (
- 
+return(
+    <>
+
+    {cliente.map((client) => (
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined">
       <React.Fragment>
     <CardContent>
       <Typography sx={{ fontSize: 14 }} /* color="text.secondary" */ gutterBottom>
+ 
     
-    {cliente[0].nombre}
-     
+    {client.Nombre}
       </Typography>
       <Typography variant="h5" component="div">
-
+Ingresos declarados:  {client.ingresos}
        
       </Typography>
       <Typography sx={{ mb: 1.5 }} /* color="text.secondary" */>
@@ -77,24 +78,19 @@ if (cliente != undefined){
    
         <br />
         {'"a benevolent smile"'}
+           
       </Typography>
     </CardContent>
   
   </React.Fragment>  
         </Card>
     </Box>
+    ))}
   
-  )
+  
+  </>
 
-}else {
-
-return(
-
-<h1>Hola</h1>)
-
-
-}
-
+)
 
     
   

@@ -23,10 +23,10 @@ const ir = () => {
 
             <div className="container__article">
            
-                <div className="box__article">
+                <div  className="box__article">
                 
-                   <i> < CurrencyExchangeIcon /></i>
-                      <button onClick={ir}>Informar Transferencia </button>
+                   <i onClick={ir}> < CurrencyExchangeIcon /></i>
+                      <h5 onClick={ir}>Informar Transferencia </h5>
                       
                   
                     

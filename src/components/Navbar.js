@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../Assets/marcas.png";
+import  useUser from '../hooks/useUser'
 import {
   AppBar,
   Button,
@@ -14,6 +15,7 @@ import DrawerNav from "./DrawerNav";
 
 
 const Navbar = (props) => {
+  const usuario  = useUser().userContext
   const [user, setUser] = useState(null)
   const [value, setValue] = useState();
   const theme = useTheme();
@@ -34,7 +36,21 @@ const Navbar = (props) => {
      window.location.reload(true);
    } 
   console.log(isMatch);
+  const logueado = () => {
+  
+  
+    if (usuario != null  ){
+      return 
+      (<Button onClick={handleClick} sx={{ marginLeft: "auto" }} variant="contained">
+      Ingresar
+    </Button>)
+    } else{
+    return
+    (<Button onClick={handleClick} sx={{ marginLeft: "auto" }} variant="contained">
+    Ingresar
+  </Button>)
 
+  }}
   return (
     <React.Fragment>
       <AppBar sx={{ background: "#Primary" }}>
@@ -58,15 +74,19 @@ const Navbar = (props) => {
                 <Tab label="Contacto" />
                 <Tab label="Ayuda" />
               </Tabs>
-              <Button onClick={handleClick} sx={{ marginLeft: "auto" }} variant="contained">
-                Ingresar
-              </Button>
-              <Button sx={{ marginLeft: "10px" }} variant="contained">
+              {usuario &&  <Button onClick={hanleLogout} sx={{ marginLeft: "10px" }} variant="contained">
+                Logout
+              </Button>  }
+
+
+              {!usuario && <div>    <Button sx={{ marginLeft: "10px" }} variant="contained">
                 Registrarse
               </Button>
-               <Button onClick={hanleLogout} sx={{ marginLeft: "10px" }} variant="contained">
-                Logout
-              </Button> 
+              <Button onClick={handleClick} sx={{ marginLeft: "auto" }} variant="contained">
+                Ingresar
+              </Button></div>}
+             
+
             </>
           )}
         </Toolbar>

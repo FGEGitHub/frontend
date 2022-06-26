@@ -9,6 +9,14 @@ const vercuotas= async  (id) => {
     
     return data 
 }  
+const cuotasDeUnLote = async  (id) => {
+    
+   console.log(id)
+    const data  = await axios.get('http://localhost:4000/cuotas/cuotasdeunlote/'+id)
+    console.log(data)
+    
+    return data 
+} 
 
 
 const agregarCuotas= async  (estadoCuotas) => {
@@ -20,4 +28,4 @@ const agregarCuotas= async  (estadoCuotas) => {
    // return data 
 }  
 
-export default {vercuotas,agregarCuotas};
+export default {vercuotas,agregarCuotas, cuotasDeUnLote};

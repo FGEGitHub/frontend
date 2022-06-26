@@ -7,6 +7,7 @@ import {useEffect,useState} from 'react'
 import Login from './Paginas/Login';
 import servicioUsuario from './services/usuarios'
 import servicioAprobaciones from './services/Aprobaciones'
+import servicioPagos from './services/pagos'
 
 function App () {
   const element = useRoutes(Rutas)
@@ -37,8 +38,8 @@ useEffect(() => {
  }, [])
  const inusuales = async () => {
 
-  const cantInusual ={
-    cantidadInusual: 7}
+  const cantInusual =servicioPagos.cantidad()
+  console.log(cantInusual)
     setUsInusualContext(cantInusual)
 
 }
@@ -60,8 +61,11 @@ useEffect(() => {
 
 
 
-if (userContext != null){
-  return (
+if (userContext == null){
+  return(<Login/>)
+  
+}else {
+return (
     
   <UserContext.Provider value={{userContext}}>
     <InusualContext.Provider value={inusualContext}>
@@ -72,10 +76,20 @@ if (userContext != null){
 </NotiContext.Provider>
 </InusualContext.Provider>
    </UserContext.Provider>)
-}else {
-  return(<Login/>)
 
-}}
+ 
+
+}
+
+
+
+
+}
+
+
+
+
+
 
 export default () =>
  <BrowserRouter>

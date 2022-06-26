@@ -4,17 +4,22 @@ import servicioClientes from '../services/clientes'
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
+import NativeSelect from '@mui/material/NativeSelect';
 import MenuItem from '@mui/material/MenuItem';
 import Card from '@mui/material/Card';
 import FormControl from '@mui/material/FormControl';
 import { useParams } from "react-router-dom"
-import NativeSelect from '@mui/material/NativeSelect';
+
 
 export default function AsignarLoreACliente() {
     let params = useParams()
     let cuil_cuit = params.cuil_cuit
     const [lotes, setLotes] = useState({
         cuil_cuit: cuil_cuit
+        /////////asignar lote 0 caso que no se seleccione
+    })
+    const [pagos, setPagos] = useState({
+
     })
 
     useEffect(() => {
@@ -26,10 +31,8 @@ export default function AsignarLoreACliente() {
     
         
         console.log(lotes)
-      await servicioClientes.ventaLote(lotes)
-        setLotes(lotes)
-
-
+     pagos = await servicioClientes.ventaLote(lotes)
+        setPagos(pagos)
 
 
 

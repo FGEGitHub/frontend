@@ -8,6 +8,7 @@ import Agregarcuotas from '../Paginas/Usuario2/AgregarCuotas';
 
 import NAvBar from "../components/Navbar";
 import Usuario1 from "../Paginas/usuario1/menuusuario1";
+import Cuotas from "../Paginas/usuario1/Cuotas";
 import Aprobaciones from "../Paginas/Aprobaciones"
 import Legajos from "../Paginas/usuario1/Legajos"
 import ingresosDeclarados from "../Paginas/usuario1/IngresosDeclarados"
@@ -15,6 +16,7 @@ import PagosInusuales from "../Paginas/Usuario2/PagosInusuales"
 import AsignarLoteAUsuario from "../Paginas/Usuario2/AsignarLoteAUsuario"
 import AprobacionesPagos from "../Paginas/Usuario2/AprobacionesPagos"
 import Transferencias from '../Paginas/usuario1/Transferencias';
+import PagosInusualesMensuales from "../Paginas/Nivel3/PagosInusuales"
 
 
 
@@ -37,12 +39,14 @@ const Rutas = [
 	{ path: '/usuario/Legajos', element: < Legajos /> },
 	{ path: '/usuario/transferencias', element: < Transferencias /> },
 	{ path: '/usuario/ingresosdeclarados', element: < ingresosDeclarados /> },
+	{ path: '/usuario/cuotas', element: < Cuotas /> },
 	{ path: '/usuario2/detallecliente/:cuil_cuit', element: <DetalleCliente /> },
 	{ path: '/usuario2/agregarcuotas/:id', element: <Agregarcuotas /> },
 	{ path: '/usuario2/asignarloteausuario/:cuil_cuit', element: <AsignarLoteAUsuario /> },
 	{ path: '/usuario2/aprobaciones', element: <Aprobaciones /> },
 	{ path: '/usuario2/aprobacionesdepagos', element: <AprobacionesPagos /> },
 	{ path: '/usuario2/pagosinusuales', element: <PagosInusuales /> },
+	{ path: '/usuario3/pagosinusuales', element: <PagosInusualesMensuales /> },
 
 
 	/*{	path: '/',	element: <NotFound />

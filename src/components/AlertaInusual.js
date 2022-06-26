@@ -27,7 +27,9 @@ export default function TransitionAlerts(props) {
           }
           sx={{ mb: 2 }}
         >
+     
          ATENCION HAY {props.cantidadInusual} NUEVOS PAGOS INUSUALES/SOSPECHOSOS
+      
         </Alert>
       </Collapse>
       <Button

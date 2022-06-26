@@ -42,19 +42,20 @@ export default function SelectTextFields(props) {
   };
 
 
-  const handleChange = (e) =>
-  setPago({  ...pago, [e.target.name]: e.target.value })
+  const handleChange = (e) =>{
+    console.log(e)
+  setPago({  ...pago, [e.target.name]: e.target.value })}
 ////
   const pagar = async (event) => {
     event.preventDefault();
     console.log(pago)
     try {
 
-      await servicioPagos.pagar({
+      await servicioPagos.pagar(
         pago,
        
         
-     })
+     )
  
      
      } catch (error) {
@@ -70,9 +71,7 @@ export default function SelectTextFields(props) {
 /*   const handleChange = (event) => {
     setCurrency(event.target.value);
   }; */
-  const handleClick = () => {
-    console.log('click');
-    }
+
 
   return (
     
@@ -135,9 +134,27 @@ export default function SelectTextFields(props) {
             >
        
             </Box>
-
-            <TextField   onChange={handleChange} id="filled-basic" name="mes" label="Mes" variant="filled" />
-            <TextField   onChange={handleChange} id="filled-basic" name="anio" label="Año" variant="filled" />
+            <TextField component="form"
+            sx={{
+                '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+            
+                id="outlined-select-currency"
+                select
+                label="CBU"
+                value={currency}
+                name="cbu"
+                onChange={handleChange}
+                helperText="Por favor ingrese su CBU"
+                >
+                {currencies.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                    </MenuItem>
+                ))}
+                </TextField>
            
             <Box sx={{ '& > :not(style)': { m: 1 } }}>
             <TextField

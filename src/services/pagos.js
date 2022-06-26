@@ -2,9 +2,9 @@ import axios from 'axios'
 const  baseUrl = 'http://localhost:4000/'
 
 const pagar= async  (pago) => {
-   console.log(pago.pago)
+   console.log(pago)
 
-  const {data } = await axios.post(baseUrl+'usuario1/realizarr',(pago.pago))
+ // const {data } = await axios.post(baseUrl+'usuario1/realizarr',(pago))
     
   
 }  
