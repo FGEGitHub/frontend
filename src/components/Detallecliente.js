@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useParams } from "react-router-dom"
 import LotesCliente from './LotesCliente'
-import InfoCliente from './Infocliente'
+import InfoCliente from './FichaAxios'
 
 import servicioCliente from '../services/clientes'
 
@@ -33,7 +33,8 @@ const DetalleCliente = () => {
     }
     return (
         <div>
-   <InfoCliente/> 
+   <InfoCliente
+   cuil_cuit={cuil_cuit}/> 
 
          
             {<LotesCliente

@@ -17,6 +17,7 @@ import AsignarLoteAUsuario from "../Paginas/Usuario2/AsignarLoteAUsuario"
 import AprobacionesPagos from "../Paginas/Usuario2/AprobacionesPagos"
 import Transferencias from '../Paginas/usuario1/Transferencias';
 import PagosInusualesMensuales from "../Paginas/Nivel3/PagosInusuales"
+import Principal from "../Paginas/Nivel3/Principal"
 
 
 
@@ -46,7 +47,8 @@ const Rutas = [
 	{ path: '/usuario2/aprobaciones', element: <Aprobaciones /> },
 	{ path: '/usuario2/aprobacionesdepagos', element: <AprobacionesPagos /> },
 	{ path: '/usuario2/pagosinusuales', element: <PagosInusuales /> },
-	{ path: '/usuario3/pagosinusuales', element: <PagosInusualesMensuales /> },
+	{ path: '/nivel3/', element: <Principal /> },
+	{ path: '/nivel3/pagosinusuales', element: <PagosInusualesMensuales /> },
 
 
 	/*{	path: '/',	element: <NotFound />
