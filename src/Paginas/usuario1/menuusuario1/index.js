@@ -5,7 +5,7 @@ import Footer from '../../../components/usuario1/Footer';
 import Banner from '../../../components/usuario1/Banner'
 import Cards from '../../../components/usuario1/Cards'
 import Faq from '../../../components/usuario1/Faq'
-import Navbar from '../../../components/Navbar'
+import Navbar from '../../../components/usuario1/Navbar1'
 
 
 

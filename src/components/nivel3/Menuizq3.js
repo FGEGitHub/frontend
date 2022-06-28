@@ -21,7 +21,7 @@ import AlertaAprobaciones from '../AlertaAprobaciones'
 import  useNoti from '../../hooks/useNoti'
 import  useInusual from '../../hooks/useInusual'
 import AlertaInusual from '../AlertaInusual'
-import Navbar from '../Navbar'
+import Navbar from './Navbar3'
 
 const drawerWidth = 240;
 export default function MenuIzq2 ({children}) {

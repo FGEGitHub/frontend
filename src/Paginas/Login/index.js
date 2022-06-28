@@ -86,6 +86,7 @@ const Login = () => {
                 window.location.reload(true);
           break;
           case 3:navigate('/nivel3')
+          window.location.reload(true);
           break;
 
       }

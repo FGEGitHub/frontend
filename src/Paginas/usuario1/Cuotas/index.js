@@ -1,7 +1,7 @@
 
 
 
-import Navbar from '../../../components/Navbar'
+import Navbar from '../../../components/usuario1/Navbar1'
 import  useUser from '../../../hooks/useUser'
 import LotesCuotas from '../../../components/usuario1/LotesCuotas '
 

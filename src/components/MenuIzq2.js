@@ -27,6 +27,7 @@ const drawerWidth = 240;
 export default function MenuIzq2 ({children}) {
     const navigate = useNavigate();
     const {cantidad } = useNoti()
+   
     const {cantidadInusual } = useInusual()
     const handleClick = (path) => {
         

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../Assets/marcas.png";
-import  useUser from '../hooks/useUser'
+import logo from "../../Assets/marcas.png";
+import  useUser from '../../hooks/useUser'
 import {
   AppBar,
   Button,
@@ -11,7 +11,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import DrawerNav from "./DrawerNav";
+import DrawerNav from "../DrawerNav";
 
 
 const Navbar = (props) => {
@@ -21,7 +21,7 @@ const Navbar = (props) => {
   const [user, setUser] = useState(null)
   const [value, setValue] = useState();
   const theme = useTheme();
-
+  console.log(theme);
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const islogo = {
                   width: "100px",                  
@@ -37,12 +37,25 @@ const Navbar = (props) => {
      window.localStorage.removeItem('loggedNoteAppUser')
      window.location.reload(true);
    } 
+   const inicio = () => {
+    navigate("/nivel3/");
+   } 
+  console.log(isMatch);
+  const logueado = () => {
+  
+  
+    if (usuario != null  ){
+      return 
+      (<Button onClick={handleClick} sx={{ marginLeft: "auto" }} variant="contained">
+      Ingresar
+    </Button>)
+    } else{
+    return
+    (<Button onClick={handleClick} sx={{ marginLeft: "auto" }} variant="contained">
+    Ingresar
+  </Button>)
 
-  const inicio = () => {
-    navigate("/usuario2/clientes")
-    
-
-  }
+  }}
   return (
     <React.Fragment>
       <AppBar sx={{ background: "#Primary" }}>
@@ -61,8 +74,10 @@ const Navbar = (props) => {
                 value={value}
                 onChange={(e, value) => setValue(value)}
               >
-                  {usuario &&  <Button onClick={inicio} sx={{ marginLeft: "10px" }} variant="contained">
-                  <Tab label="inicio" />
+              
+              
+              {usuario &&  <Button onClick={inicio} sx={{ marginLeft: "10px" }} variant="contained">
+              <Tab label="Inicio" />
               </Button>  }
             
                 <Tab label="Nosotros" />

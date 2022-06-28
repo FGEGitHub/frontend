@@ -6,26 +6,42 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import { ThemeContext } from '@emotion/react';
-
+import servicioLegajo from '../../../../services/legajos'
 const AddDatos = () => {
   const handleClick = () => {
     console.log('click');
   };
-  const [files, setFiles] = useState([]);
+  const [file, setFile] = useState(null);
+
   const onDrop = useCallback((acceptedFiles) => {
-    setFiles(acceptedFiles);
+    setFile(acceptedFiles);
     console.log(acceptedFiles);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
 
   });
+
+  const selecthandler = e =>{
+   setFile(e.target.files[0])
+  }
+
+  const enviar = () =>{
+   if (!file){
+    alert('No seleccionaste el archivo')
+    return
+   }
+   const formdata = new FormData()
+   formdata.append('image',file)
+   servicioLegajo.subirprueba(formdata)
+
+   }
   return (
     <>
-     <Box sx={{m:1}}>
-      <Button onClick={handleClick} size="small" variant="contained">
-                Descargar modelo
-      </Button>
+      <Box sx={{ m: 1 }}>
+        <Button onClick={handleClick} size="small" variant="contained">
+          Descargar modelo
+        </Button>
       </Box>
       <Paper
         sx={{
@@ -36,17 +52,13 @@ const AddDatos = () => {
           '&:hover': { border: '1px solid #ccc' },
         }}
       >
-        <div style={{ padding: '16px' }} {...getRootProps()}>
-          <input {...getInputProps()} />
-          {isDragActive ? (
-            <p style={{ color: 'green' }}>Suelta aqui el documento</p>
-          ) : (
-            <p>Arrastra hasta aqui el archivo descargado con tus datos personales</p>
-          )}
-          <em>(Documentos .*pdf, .*doc, *.jpeg, *.png, *.jpg  extenciones aceptadas)</em>
-        </div>
+        <input onChange={selecthandler}  type="file" />
+ 
+
+          <Button onClick={enviar}>Enviar</Button>
+
       </Paper>
-      
+
     </>
   );
 };

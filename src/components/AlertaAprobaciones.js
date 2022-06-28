@@ -8,7 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 export default function TransitionAlerts(props) {
   const [open, setOpen] = React.useState(true);
-
+  const cant = props.cantidad
   return (
     <Box sx={{ width: '100%' }}>
       <Collapse in={open}>
@@ -27,7 +27,7 @@ export default function TransitionAlerts(props) {
           }
           sx={{ mb: 2 }}
         >
-         ATENCION TENES {props.cantidad} APROBACIONES PENDIENTES 
+         ATENCION TENES {cant} APROBACIONES PENDIENTES 
         </Alert>
       </Collapse>
       <Button
