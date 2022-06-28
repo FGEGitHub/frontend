@@ -4,6 +4,8 @@ import DetalleCliente from '../Paginas/Usuario2/DetalleCliente';
 import Lista from '../Paginas/Usuario2/Lista';
 import Clientes from '../Paginas/Usuario2/MenuUsuario2';
 import Lotes from '../Paginas/Usuario2/Lotes';
+import LegajosCliente from '../Paginas/Usuario2/LegajoCliente';
+
 import Agregarcuotas from '../Paginas/Usuario2/AgregarCuotas';
 
 import NAvBar from "../components/Navbar";
@@ -47,6 +49,7 @@ const Rutas = [
 	{ path: '/usuario2/asignarloteausuario/:cuil_cuit', element: <AsignarLoteAUsuario /> },
 	{ path: '/usuario2/aprobaciones', element: <Aprobaciones /> },
 	{ path: '/usuario2/aprobacionesdepagos', element: <AprobacionesPagos /> },
+	{ path: '/usuario2/legajoscliente/:cuil_cuit', element: <LegajosCliente /> },
 	{ path: '/usuario2/pagosinusuales', element: <PagosInusuales /> },
 	{ path: '/nivel3/', element: <Principal /> },
 	{ path: '/nivel3/pagosinusuales', element: <PagosInusualesMensuales /> },

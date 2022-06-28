@@ -2,6 +2,9 @@
 import axios from 'axios'
 const  baseUrl = 'http://localhost:4000/prueba'
 
+
+
+
 const lista= async  () => {
    
     const {data } = await axios.get(baseUrl)
@@ -35,6 +38,13 @@ const determinarIngreso= async  (datos) => {
     console.log(data)
     alert('Guardado con exito')
     return data 
-} 
+}
 
-export default {lista, cliente, determinarIngreso,crearCliente,ventaLote};
+const traerLejagos= async  (cuil_cuit) => {
+   console.log(cuil_cuit)
+    const {data } = await axios.get('http://localhost:4000/links/legajos/',cuil_cuit)
+    
+    return data 
+}
+
+export default {lista, cliente, determinarIngreso,crearCliente,ventaLote,traerLejagos};
