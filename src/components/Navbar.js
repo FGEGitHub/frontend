@@ -34,8 +34,9 @@ const Navbar = (props) => {
     /* console.log('click')
      setUser(null)
      servicioUsuario.setToken(user.token) */
+         navigate('/login')
      window.localStorage.removeItem('loggedNoteAppUser')
-     window.location.reload(true);
+  //window.location.reload(true);
    } 
 
   const inicio = () => {

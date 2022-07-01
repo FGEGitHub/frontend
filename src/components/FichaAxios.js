@@ -22,8 +22,11 @@ import Container from '@mui/material/Container';
 import servicioCliente from '../services/clientes'
 import "./profile.css";
 import { Box } from "@mui/system";
+import { useNavigate } from "react-router-dom";
+
 
 const FichaAxios = (props) => {
+  const navigate = useNavigate();
     const [cliente, setCliente] = useState([])
   const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
   const [address, setAddress] = useState(null);
@@ -41,7 +44,7 @@ const FichaAxios = (props) => {
        
    
       const  cliente = await servicioCliente.cliente(props.cuil_cuit)
-      console.log(cliente[0]['cuil_cuit'])
+      
       setCliente(cliente)
   
      
@@ -52,14 +55,16 @@ const FichaAxios = (props) => {
 
 
 
-  return (<>     {cliente.map((client) =>( 
+  return (<>    
+    
+   {cliente.map((client) =>( 
     <div className="profile">
       <Grid Container>
         <Grid item xs={8} style={{ justifyContent: "center", display: "flex" }}>
           <Avatar sx={{ width: 170, height: 140 }}>H</Avatar>
         </Grid>
         <Grid item xs={8}style={{ justifyContent: "center", display: "flex" }}>
-          <form onSubmit={submitFormHandler}>
+  
             <Container>
             <Box>
             <h5>
@@ -196,43 +201,21 @@ const FichaAxios = (props) => {
                     <div className="profile-edit-button">
                       <Button
                         variant="outlined"
-                        onClick={() => setEditMode(true)}
+                        onClick={() => navigate('/usuario2/legajoscliente/'+props.cuil_cuit)}
                       >
-                        editar
+                      Ir a legajos
                       </Button>
                     </div>
                   )}
                 </columns>
               </Box>
             </Container>
-          </form>
+          
         </Grid>
 
         <Grid item xs={8} style={{ justifyContent: "center", display: "flex" }}>
-          <Container>
-          <Box>
-            <h5>
-            Otros Datos del Cliente
-            </h5>
-
-      
-            </Box>
-
-            <Box>
-            <TextField>
-            </TextField>
-            </Box>
-            <Box>
-            <TextField>
-            </TextField>
-            </Box>
-            <Box>
-            <TextField>
-            </TextField>
-            </Box>
-
-                    
-          </Container>
+         
+         
         </Grid>
       </Grid>
     </div>

@@ -33,6 +33,7 @@ const AddDatos = () => {
    }
    const formdata = new FormData()
    formdata.append('image',file)
+   console.log(formdata)
    servicioLegajo.subirprueba(formdata)
 
    }

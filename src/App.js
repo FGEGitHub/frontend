@@ -61,12 +61,13 @@ useEffect(() => {
 
 
 
-if (userContext == null){
+/* if (userContext == null){
   return(<Login/>)
   
 }else {
 return (
-    
+    } */
+    return(
   <UserContext.Provider value={{userContext}}>
     <InusualContext.Provider value={inusualContext}>
   <NotiContext.Provider value={notiContext}>
@@ -79,7 +80,7 @@ return (
 
  
 
-}
+
 
 
 

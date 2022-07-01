@@ -7,6 +7,7 @@ import servicioCliente from '../services/clientes'
 
 
 const DetalleCliente = () => {
+   
     let params = useParams()
     let cuil_cuit = params.cuil_cuit
     const [cliente, setCliente] = useState([])
@@ -19,27 +20,26 @@ const DetalleCliente = () => {
     const traer = async () => {
 
         const cliente = await servicioCliente.cliente(cuil_cuit)
-        console.log(cliente)
+
         setCliente(cliente)
 
 
 
             ;
     };
-    const declarar = async () => {
-
-
-
-    }
+  
     return (
-        <div>
-   <InfoCliente
-   cuil_cuit={cuil_cuit}/> 
-
-         
+        <div> 
+            
+              <div>
+            
+            <InfoCliente
+                cuil_cuit={cuil_cuit} />
+             </div> 
+             <div>
             {<LotesCliente
                 cuil_cuit={cuil_cuit} />}
-
+</div> 
         </div>
     )
 }

@@ -22,9 +22,11 @@ import Container from '@mui/material/Container';
 import servicioCliente from '../services/clientes'
 import "./profile.css";
 import { Box } from "@mui/system";
+import ModalLegajo from './Modalegajo'
 
 const LegajoCliente = (props) => {
     const [legajos, setLegajos] = useState([])
+    const [file, setFile] = useState(null);
   const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
   const [address, setAddress] = useState(null);
   const [editMode, setEditMode] = useState(false);
@@ -36,6 +38,8 @@ const LegajoCliente = (props) => {
     traer()
     
 }, []) 
+
+
 
   const traer = async() => {
        
@@ -51,19 +55,29 @@ const LegajoCliente = (props) => {
  
 
 
+    const selecthandler = e =>{
+      setFile(e.target.files[0])
+     }
+
+
 
   return (<>  
-    {/* <img src={'http://localhost:3000/usuario/Legajos'}> image</img> */}
+ 
+ <ModalLegajo
+ cuil_cuit = {props.cuil_cuit}
+ />
+   
+
      {legajos.map((legajo) =>( 
     <div className="profile">
-      <Grid Container>
+      <Grid >
        
         <Grid item xs={8}style={{ justifyContent: "center", display: "flex" }}>
           <form onSubmit={submitFormHandler}>
             <Container>
             <Box>
             <h5>
-            Datos Personales del Cliente
+           Legajo: {legajo.tipo}
             </h5>
                 
             </Box>
@@ -74,6 +88,22 @@ const LegajoCliente = (props) => {
                   id="cuil"
                  // defaultValue="CUIL"
                   value= {legajo.cuil_cuit}
+                  variant="filled"
+                  sx={{ margin: "10px" }}
+                  InputProps={{
+                    readOnly: !editMode,
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <AccountCircle />
+                      </InputAdornment>
+                    )
+                  }}
+                />
+                <TextField
+                  label="Descarga"
+                  id="cuil"
+                 // defaultValue="CUIL"
+                  value= {legajo.ubicacion}
                   variant="filled"
                   sx={{ margin: "10px" }}
                   InputProps={{

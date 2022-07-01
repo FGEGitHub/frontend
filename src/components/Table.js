@@ -60,9 +60,14 @@ const Lotes = () => {
 
         },
         {
-            name: "domicilio",
-            label: "Domicilio",
-            actions: { onClick: (event, rowData) => alert(rowData) }
+            name: "razon",
+            label: "Razon",
+           
+        },
+        {
+            name: "observaciones",
+            label:"Observaciones",
+           
         },
         {
             name: "Actions",

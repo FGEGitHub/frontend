@@ -125,10 +125,10 @@ export default function MenuIzq2 ({children}) {
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
         <Toolbar />
-        <AlertaInusual
+      {/*   <AlertaInusual
       cantidadInusual={cantidadInusual} />
         <AlertaAprobaciones
-      cantidad={cantidad} />
+      cantidad={cantidad} /> */}
    { children}
       </Box>
     </Box>

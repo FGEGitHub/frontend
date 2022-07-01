@@ -60,7 +60,7 @@ export default function Ingresos() {
         <DialogTitle>Determinar Ingreso declarado</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Ingrese el valor en pesos blue
+            Ingrese el valor en pesos 
           </DialogContentText>
           <form  onSubmit={handleDeterminar}> 
           <TextField

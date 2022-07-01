@@ -3,7 +3,12 @@ import axios from 'axios'
 const  baseUrl = 'http://localhost:4000/prueba'
 
 
-
+const crear= async  (datos) => {
+   console.log(datos)
+    const {data } = await axios.post('http://localhost:4000/links/add2',datos)
+    
+    alert(data)  
+}  
 
 const lista= async  () => {
    
@@ -42,9 +47,9 @@ const determinarIngreso= async  (datos) => {
 
 const traerLejagos= async  (cuil_cuit) => {
    console.log(cuil_cuit)
-    const {data } = await axios.get('http://localhost:4000/links/legajos/',cuil_cuit)
+    const {data } = await axios.get('http://localhost:4000/links/legajos/'+cuil_cuit)
     
     return data 
 }
 
-export default {lista, cliente, determinarIngreso,crearCliente,ventaLote,traerLejagos};
+export default {lista, cliente, determinarIngreso,crearCliente,ventaLote,traerLejagos,crear};

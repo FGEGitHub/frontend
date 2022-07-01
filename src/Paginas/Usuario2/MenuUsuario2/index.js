@@ -1,6 +1,7 @@
 import * as React from 'react';
 import  { useEffect, useState } from "react";
 import TableAxios from '../../../components/Table';
+import Nuevo from '../../../components/ClienteNuevo';
 import { useNavigate } from "react-router-dom";
 import servicioUsuario from '../../../services/usuarios'
 import NotificacionLegajo from '../../../components/NotificacionesU2'
@@ -43,7 +44,7 @@ export default function MenuUsuario2() {
   return (
    
     <BarraLAteral>
-       
+       <Nuevo/>
     <TableAxios/>
  </BarraLAteral>
   );
