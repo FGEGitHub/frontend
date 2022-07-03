@@ -53,7 +53,7 @@ export default function Ingresos() {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-       CARGAR CLENTE NUEVO
+       CARGAR CLIENTE NUEVO
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Cliente nuevo</DialogTitle>
