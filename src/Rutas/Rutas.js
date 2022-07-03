@@ -18,8 +18,10 @@ import PagosInusuales from "../Paginas/Usuario2/PagosInusuales"
 import AsignarLoteAUsuario from "../Paginas/Usuario2/AsignarLoteAUsuario"
 import AprobacionesPagos from "../Paginas/Usuario2/AprobacionesPagos"
 import Transferencias from '../Paginas/usuario1/Transferencias';
+
 import PagosInusualesMensuales from "../Paginas/Nivel3/PagosInusuales"
 import Principal from "../Paginas/Nivel3/Principal"
+import Icc from "../Paginas/Nivel3/Icc"
 
 
 
@@ -51,8 +53,11 @@ const Rutas = [
 	{ path: '/usuario2/aprobacionesdepagos', element: <AprobacionesPagos /> },
 	{ path: '/usuario2/legajoscliente/:cuil_cuit', element: <LegajosCliente /> },
 	{ path: '/usuario2/pagosinusuales', element: <PagosInusuales /> },
+
+
 	{ path: '/nivel3/', element: <Principal /> },
 	{ path: '/nivel3/pagosinusuales', element: <PagosInusualesMensuales /> },
+	{ path: '/nivel3/icc', element: <Icc /> },
 
 
 	/*{	path: '/',	element: <NotFound />

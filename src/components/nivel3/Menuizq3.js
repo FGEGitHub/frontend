@@ -75,7 +75,7 @@ export default function MenuIzq2 ({children}) {
         {
             text: 'Agregar ICC',
             icon: <AssignmentTurnedInIcon color="primary" />,
-            path: '/usuario2/aprobaciones'
+            path: '/nivel3/icc'
           },
           {
             text: 'Agregar un Usuario',

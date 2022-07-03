@@ -8,6 +8,7 @@ const pagar= async  (pago) => {
     
   
 }  
+
 const rechazararpago= async  (form) => {
  
   
