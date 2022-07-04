@@ -59,11 +59,16 @@ const MensualInusuales = (props) => {
 
         {
             name: "cuil_cuit",
-            label: "Saldo Cuil/Cuit",
+            label: "Cuil/Cuit",
         },
         {
             name: "monto",
-            label: "Nonto",
+            label: "Monto",
+
+        },
+        {
+            name: "Nombre",
+            label: "Nombre/Razon",
 
         },
         {
@@ -72,8 +77,8 @@ const MensualInusuales = (props) => {
 
         },
         {
-            name: "Saldo_real",
-            label: "Otro",
+            name: "domicilio",
+            label: "Direccion",
 
         },
       

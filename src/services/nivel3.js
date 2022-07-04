@@ -5,7 +5,7 @@ const agregariccgral= async  (datos) => {
    
     const {data } = await axios.post(baseUrl+'agregariccgral2',datos)
     alert(data)
-    return data 
+   
 }  
 const traerhistorial= async  () => {
    

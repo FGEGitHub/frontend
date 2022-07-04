@@ -21,8 +21,9 @@ export default function ModalIcc() {
 
     })
     const handleChange = (e) => {
+        console.log('una')
         setForm({ ...form, [e.target.name]: e.target.value })
-        console.log(form)
+     
     }
 
     const handleClickOpen = () => {
@@ -30,19 +31,11 @@ export default function ModalIcc() {
     };
     const handleDeterminar = async (event) => {
         event.preventDefault();
-        try {
-
-            await servicionivel3.agregariccgral(form)
-
-
-        } catch (error) {
-            console.error(error);
-            console.log('Error algo sucedio')
-
-
-        }
+       await servicionivel3.agregariccgral(form)
+     
 
         setOpen(false);
+       
     };
 
     const handleClose = () => {

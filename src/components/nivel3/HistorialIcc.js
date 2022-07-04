@@ -18,8 +18,8 @@ const Historial = () => {
     
 const traer = async() => {
       
-    const historial = servicionivel3.traerhistorial()
-    console.log(historial)
+    const historial = await servicionivel3.traerhistorial()
+   
     setHistorial(historial)
   // 
     
@@ -58,7 +58,7 @@ const traer = async() => {
             label: "Año",
         },
         {
-            name: "valor",
+            name: "ICC",
             label: "Valor",
 
         },

@@ -4,10 +4,10 @@ const  baseUrl = 'http://localhost:4000/pagos/'
 const buscar= async  (form) => {
    console.log(form)
 
- const data = await axios.post(baseUrl+'mensualesinusuales',form)
- console.log(data.data)
+ const {data} = await axios.post(baseUrl+'mensualesinusuales',form)
+ console.log(data)
 
-  return data.data
+  return data
 }
 const cantidad= async  () => {
  
