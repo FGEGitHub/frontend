@@ -22,6 +22,7 @@ import  useNoti from '../../hooks/useNoti'
 import  useInusual from '../../hooks/useInusual'
 import AlertaInusual from '../AlertaInusual'
 import Navbar from './Navbar3'
+import Looks3Icon from '@mui/icons-material/Looks3';
 
 const drawerWidth = 240;
 export default function MenuIzq2 ({children}) {
@@ -74,22 +75,22 @@ export default function MenuIzq2 ({children}) {
         },
         {
             text: 'Agregar ICC',
-            icon: <AssignmentTurnedInIcon color="primary" />,
+            icon: <Looks3Icon color="primary" />,
             path: '/nivel3/icc'
           },
           {
             text: 'Agregar un Usuario',
-            icon: <AssignmentTurnedInIcon color="primary" />,
+            icon: <Looks3Icon color="primary" />,
             path: '/usuario2/aprobaciones'
           },
           {
             text: 'Informes',
-            icon: <AssignmentTurnedInIcon color="primary" />,
+            icon: <Looks3Icon color="primary" />,
             path: '/usuario2/aprobaciones'
           },
           {
             text: 'Pagos Inusuales Mensuales',
-            icon: <AssignmentTurnedInIcon color="primary" />,
+            icon: <Looks3Icon color="primary" />,
             path: '/nivel3/pagosinusuales'
           },
         
@@ -144,10 +145,10 @@ export default function MenuIzq2 ({children}) {
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
         <Toolbar />
-        <AlertaInusual
+       {/*  <AlertaInusual
       cantidadInusual={cantidadInusual} />
         <AlertaAprobaciones
-      cantidad={cantidad} />
+      cantidad={cantidad} /> */}
    { children}
       </Box>
     </Box>

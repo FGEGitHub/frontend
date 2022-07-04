@@ -3,7 +3,6 @@ import MUIDataTable from "mui-datatables";
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 import SearchIcon from '@mui/icons-material/Search';
-import axios from 'axios'
 
 import servicionivel3 from '../../services/nivel3'
 
@@ -18,10 +17,11 @@ const Historial = () => {
 
     
 const traer = async() => {
-       
+      
     const historial = servicionivel3.traerhistorial()
     console.log(historial)
     setHistorial(historial)
+  // 
     
     };  
     
@@ -41,7 +41,7 @@ const traer = async() => {
               style={{ marginRight: "10px", cursor: "pointer" }}
             />
             <SearchIcon style={{ cursor: "pointer" }} 
-            onClick={() =>  navigate('/usuario2/detallecliente/'+historial[dataIndex].cuil_cuit)  }//Navigate('usuario2/detallecliente'+clients[dataIndex].cuil_cuit)
+            onClick={() =>  navigate('/')  }//Navigate('usuario2/detallecliente'+clients[dataIndex].cuil_cuit)
             />
           </>
         );

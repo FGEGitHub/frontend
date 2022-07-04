@@ -13,6 +13,7 @@ const crear= async  (datos) => {
 const lista= async  () => {
    
     const {data } = await axios.get(baseUrl)
+
     
     return data 
 }   

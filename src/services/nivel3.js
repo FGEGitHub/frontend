@@ -10,7 +10,7 @@ const agregariccgral= async  (datos) => {
 const traerhistorial= async  () => {
    
     const {data } =await axios.get('http://localhost:4000/nivel3/historialicc')
-  
+
     return data 
 }  
 
