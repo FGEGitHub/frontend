@@ -1,5 +1,5 @@
 import axios from 'axios'
-const  baseUrl = 'http://localhost:4000/nivel3/'
+const  baseUrl = '3.92.223.19:4000/nivel3/'
 
 const agregariccgral= async  (datos) => {
    
@@ -9,7 +9,7 @@ const agregariccgral= async  (datos) => {
 }  
 const traerhistorial= async  () => {
    
-    const {data } =await axios.get('http://localhost:4000/nivel3/historialicc')
+    const {data } =await axios.get('3.92.223.19:4000/nivel3/historialicc')
 
     return data 
 }  

@@ -7,7 +7,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
-import servicioPagos from '../services/pagos'
+import servicioPagos from '../../../services/pagos'
+import NativeSelect from '@mui/material/NativeSelect';
+import InputLabel from '@mui/material/InputLabel';
 import {  useState } from "react";
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
@@ -43,6 +45,23 @@ export default function FormDialog(props) {
             Detalla  motivo del rechazo 
           </DialogContentText>
           <form  onSubmit={rechazar}>
+
+          <InputLabel  variant="standard" htmlFor="uncontrolled-native">
+                          Tipo de pago 
+                        </InputLabel>
+                        <NativeSelect
+                            defaultValue={30}
+                            onChange={handleChange}
+                            inputProps={{
+                                name: 'tipo',
+                                id: 'uncontrolled-native',
+                               
+                            }}
+                        >   <option  value={'NN'}>Elegir</option>
+                            <option   value={'Inusual'}>Inusual</option>
+                            <option  value={'Sospechoso'}>Sospechoso</option>
+                         
+                        </NativeSelect> 
           <TextField
             autoFocus
             margin="dense"

@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 import SearchIcon from '@mui/icons-material/Search';
 //import overbookingData from "./overbooking";
-import BotonRechazo from '../../RechazoPagoInusual'
+import BotonRechazo from './RechazoPagoInusual'
+import BotonAprobado from './AprobacionPagoInusual'
 import CheckIcon from '@mui/icons-material/Check';
 
 const PagosInusuales = () => {
