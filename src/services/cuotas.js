@@ -1,10 +1,10 @@
 import axios from 'axios'
-const  baseUrl = '3.92.223.19:4000/cuotas/lote2/'
+const  baseUrl = '3.92.223.19:8080/cuotas/'
 
 const vercuotas= async  (id) => {
     console.log('servicio')
    console.log(id)
-    const {data } = await axios.get(baseUrl+id)
+    const {data } = await axios.get(baseUrl+'lote2/'+id)
     console.log(data)
     
     return data 
@@ -12,7 +12,7 @@ const vercuotas= async  (id) => {
 const cuotasDeUnLote = async  (id) => {
     
    console.log(id)
-    const data  = await axios.get('3.92.223.19:4000/cuotas/cuotasdeunlote/'+id)
+    const data  = await axios.get(baseUrl+'cuotasdeunlote/'+id)
     console.log(data)
     
     return data 
@@ -22,7 +22,7 @@ const cuotasDeUnLote = async  (id) => {
 const agregarCuotas= async  (estadoCuotas) => {
   
    console.log(estadoCuotas)
-    const {data } = await axios.post('3.92.223.19:4000/cuotas/addaut2/',estadoCuotas)
+    const {data } = await axios.post(baseUrl+'addaut2/',estadoCuotas)
     console.log(data)
     
    // return data 

@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '3.92.223.19:4000/usuario1/'
+const baseUrl = '3.92.223.19:8080/usuario1/'
 
 const subirprueba = async (formdata) => {
   console.log(formdata)
@@ -12,7 +12,7 @@ const subirlegajode = async ( formdata) => {
  
 
   console.log(formdata)
-  await axios.post('3.92.223.19:4000/links/subirlegajodni', formdata)
+  await axios.post('3.92.223.19:8080/links/subirlegajodni', formdata)
 
   
   
