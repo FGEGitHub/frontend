@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-const  baseURL = '3.92.223.19:4000/links/'
+const  baseURL = 'http://3.92.223.19:4000/links/'
 
 
 const crear= async  (datos) => {
@@ -12,7 +12,7 @@ const crear= async  (datos) => {
 
 const lista= async  () => {
    
-    const {data } = await axios.get('3.92.223.19:8080/prueba')
+    const {data } = await axios.get('http://3.92.223.19:4000/prueba')
 
     
     return data 
