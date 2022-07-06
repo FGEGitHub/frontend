@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import MUIDataTable from "mui-datatables";
-import servicioClientes from '../services/clientes'
+import servicioClientes from '../../../services/clientes'
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 import SearchIcon from '@mui/icons-material/Search';

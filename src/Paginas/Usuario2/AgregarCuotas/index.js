@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import servicioCuotas from '../../../services/cuotas'
 import servicioUsuario from '../../../services/usuarios'
-import MenuIzq2 from '../../../components/MenuIzq2';
+import MenuIzq2 from '../../../components/nivel2/MenuIzq2';
 
 const drawerWidth = 240;
 

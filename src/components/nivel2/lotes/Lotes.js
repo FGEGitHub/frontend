@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import EditIcon from "@material-ui/icons/Edit";
 import SearchIcon from '@mui/icons-material/Search';
 import MUIDataTable from "mui-datatables";
-import servicioClientes from '../services/lotes'
+import servicioClientes from '../../../services/lotes'
 import { useNavigate } from "react-router-dom";
 
 

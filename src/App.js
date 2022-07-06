@@ -8,12 +8,14 @@ import Login from './Paginas/Login';
 import servicioUsuario from './services/usuarios'
 import servicioAprobaciones from './services/Aprobaciones'
 import servicioPagos from './services/pagos'
-
+import { useNavigate } from "react-router-dom";
 function App () {
+
   const element = useRoutes(Rutas)
   const [userContext, setUserContext] = useState()
   const [notiContext, setUserNotiContext] = useState(0)
   const [inusualContext, setUsInusualContext] = useState(0)
+  const navigate = useNavigate();
 
   const [user, setUser] = useState(null)
 
@@ -31,8 +33,12 @@ useEffect(() => {
      declarar()
      inusuales()
 
-   } 
+   } else{
 
+      navigate('/login')
+     
+   }
+  
 
 
  }, [])

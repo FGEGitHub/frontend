@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import { useEffect, useState, Fragment } from "react";
-import servicioClientes from '../services/clientes'
+import servicioClientes from '../../../services/clientes'
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';

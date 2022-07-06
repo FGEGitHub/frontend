@@ -4,23 +4,15 @@ import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import EmailIcon from "@mui/icons-material/Email";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import HomeIcon from "@mui/icons-material/Home";
+
+
 import InputAdornment from "@mui/material/InputAdornment";
 import HomeWorkIcon from '@mui/icons-material/HomeWork';
-import IconButton from "@mui/material/IconButton";
-import KeyIcon from "@mui/icons-material/Key";
-import FilledInput from "@mui/material/FilledInput";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
+
+
 import Container from '@mui/material/Container';
-import servicioCliente from '../services/clientes'
-import "./profile.css";
+import servicioCliente from '../../../services/clientes'
+import "../../profile.css";
 import { Box } from "@mui/system";
 import ModalLegajo from './Modalegajo'
 

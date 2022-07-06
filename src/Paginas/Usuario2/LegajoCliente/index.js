@@ -2,11 +2,11 @@ import * as React from 'react';
 import { useEffect, useState } from "react";
 
 
-import DetalleL from '../../../components/LegajoCliente';
+import DetalleL from '../../../components/nivel2/legajocliente/LegajoCliente';
 import { useNavigate } from "react-router-dom";
-import BarraLAteral from '../../../components/MenuIzq2'
+import BarraLAteral from '../../../components/nivel2/MenuIzq2'
 import servicioUsuario from '../../../services/usuarios'
-import Ingresos from '../../../components/Ingresos'
+import Ingresos from '../../../components/nivel2/detalleclienteIngresos/Ingresos'
 import { useParams } from "react-router-dom"
 
 //import {makeStyles} from "@material-ui/core/styles"

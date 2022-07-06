@@ -3,7 +3,7 @@ const  baseUrl = 'http://localhost:4000/'
 
 const pagar= async  (pago) => {
    console.log(pago)
-
+// pago nivel 1
  // const {data } = await axios.post(baseUrl+'usuario1/realizarr',(pago))
     
   

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import  { useEffect, useState } from "react";
-import TableAxios from '../../../components/Lotes';
+import TableAxios from '../../../components/nivel2/lotes/Lotes';
 import { useNavigate } from "react-router-dom";
 import servicioUsuario from '../../../services/usuarios'
-import BarraLAteral from '../../../components/MenuIzq2'
+import BarraLAteral from '../../../components/nivel2/MenuIzq2'
 const drawerWidth = 240;
 
 export default function Lotes() {

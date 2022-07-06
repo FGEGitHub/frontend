@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState, } from "react";
-import servicioLegajo from '../services/legajos'
+import servicioLegajo from '../../../services/legajos'
 import NativeSelect from '@mui/material/NativeSelect';
 
 

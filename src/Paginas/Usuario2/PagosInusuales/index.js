@@ -6,8 +6,8 @@ import servicioUsuario from '../../../services/usuarios'
 
 import  useNoti from '../../../hooks/useNoti'
 import  useUser from '../../../hooks/useUser'
-import BarraLAteral from '../../../components/MenuIzq2'
-import Tabla from '../../../components/TablaPagosinusuales'
+import BarraLAteral from '../../../components/nivel2/MenuIzq2'
+import Tabla from '../../../components/nivel2/pagosinusuales/TablaPagosinusuales'
 
 
 const drawerWidth = 240;

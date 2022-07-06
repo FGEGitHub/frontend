@@ -44,6 +44,7 @@ const Rutas = [
 	{ path: '/usuario/transferencias', element: < Transferencias /> },
 	{ path: '/usuario/ingresosdeclarados', element: < ingresosDeclarados /> },
 	{ path: '/usuario/cuotas', element: < Cuotas /> },
+	
 	{ path: '/usuario2/clientes', element: <Clientes /> },
 	{ path: '/usuario2/lotes', element: <Lotes /> },
 	{ path: '/usuario2/detallecliente/:cuil_cuit', element: <DetalleCliente /> },

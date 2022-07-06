@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import MUIDataTable from "mui-datatables";
-import servicioPagos from '../services/pagos'
+import servicioPagos from '../../../services/pagos'
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 import SearchIcon from '@mui/icons-material/Search';
 //import overbookingData from "./overbooking";
+import BotonRechazo from '../../RechazoPagoInusual'
+import CheckIcon from '@mui/icons-material/Check';
 
 const PagosInusuales = () => {
     //configuracion de Hooks
@@ -30,16 +32,21 @@ const getPagosi = async () => {
         console.log(pagos)
         setpagos(pagos)
     }
+    const aprobar = async () => {
 
+      console.log('definir')
+    }
     function CutomButtonsRenderer(dataIndex, rowIndex, data, onClick) {
+     
         return (
           <>
-            <EditIcon
-              onClick={() => onClick(data[dataIndex].id, dataIndex)}
-              style={{ marginRight: "10px", cursor: "pointer" }}
+           
+            <BotonRechazo 
+             id= {pagos[dataIndex].id} 
             />
-            <SearchIcon style={{ cursor: "pointer" }} 
-            onClick={() =>  navigate('/usuario2/detallecliente/'+pagos[dataIndex].cuil_cuit)  }//Navigate('usuario2/detallecliente'+clients[dataIndex].cuil_cuit)
+            <CheckIcon style={{ cursor: "pointer" }} 
+            onClick={() =>  {aprobar(pagos[dataIndex].id) 
+           /*  navigate('/usuario2/detallecliente/'+pendientes[dataIndex].id) */}  }//Navigate('usuario2/detallecliente'+clients[dataIndex].cuil_cuit)
             />
           </>
         );

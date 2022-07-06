@@ -11,20 +11,14 @@ import InputLabel from '@mui/material/InputLabel';
 const MensualInusuales = (props) => {
     let params = useParams()
     const [FormFecha, setFormFecha] = useState({
+ 
         
     })
     const navigate = useNavigate();
 
     const [pagos, setPagos] = useState([''])
-    const [cuotas, setCuotas] = useState([''])
-    const [open, setOpen] = React.useState(false);
-    const [estadoCuotas, setestadoCuotas] = useState({
-        anticipo: "",
-        monto: "",
-        cantidad_cuotas: "",
-
-
-    })
+ 
+    
 
 
     
@@ -37,7 +31,7 @@ const MensualInusuales = (props) => {
     const buscar = async (e) => {
         e.preventDefault()
         const pagos  = await servicioPagosInusuales.buscar(FormFecha)
-        console.log(pagos)
+      
         setPagos(pagos)
 
 
@@ -90,7 +84,7 @@ const MensualInusuales = (props) => {
     ];
 
     const handleChange = (e) => {
-        console.log(e.target.value)
+        buscar()
         setFormFecha({ ...FormFecha, [e.target.name]: e.target.value })
     }
 

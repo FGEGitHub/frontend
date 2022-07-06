@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 import MUIDataTable from "mui-datatables";
-import servicioAprobaciones from '../services/Aprobaciones'
+import servicioAprobacionesPagos from '../../services/pagos'
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import CheckIcon from '@mui/icons-material/Check';
-import BotonRechazo from './RechazoConstancia'
+import BotonRechazo from '../RechazoPago'
 //import overbookingData from "./overbooking";
 
 const TablaAprobaciones = () => {
     //configuracion de Hooks
     const [pendientes, setPendientes] = useState([]);
-    
     const navigate = useNavigate();
 
 
@@ -19,7 +18,7 @@ const TablaAprobaciones = () => {
 
     const getPendientes = async () => {
 
-        const pendientes = await servicioAprobaciones.lista({
+        const pendientes = await servicioAprobacionesPagos.aprobaciones({
 
         })
         setPendientes(pendientes)
@@ -27,7 +26,7 @@ const TablaAprobaciones = () => {
 
     const aprobar = async (id) => {
 
-    await servicioAprobaciones.aprobacion(id)
+    await servicioAprobacionesPagos.aprobarpago(id)
     window.location.reload(true)
     }
 
@@ -57,23 +56,32 @@ const TablaAprobaciones = () => {
     // definimos las columnas
     const columns = [
         {
-            name: "tipo",
-            label: "Tipo",
+            name: "id",
+            label: "ID",
+
+        },
+    
+        {
+            name: "mes",
+            label: "Mes",
 
         },
         {
+            name: "anio",
+            label: "Año",
+           
+        },
+            {
             name: "cuil_cuit",
             label: "Cuil/cuit",
         },
         {
-            name: "descripcion",
-            label: "Descripcion",
-
+            name: "monto",
+            label: "Monto",
         },
         {
             name: "estado",
             label: "Estado",
-            actions: { onClick: (event, rowData) => alert(rowData) }
         },
         {
             name: "Actions",

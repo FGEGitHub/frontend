@@ -17,11 +17,11 @@ import NfcIcon from '@mui/icons-material/Nfc';
 import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
-import AlertaAprobaciones from './AlertaAprobaciones'
-import  useNoti from '../hooks/useNoti'
-import  useInusual from '../hooks/useInusual'
-import AlertaInusual from './AlertaInusual'
-import Navbar from './Navbar'
+import AlertaAprobaciones from '../AlertaAprobaciones'
+import  useNoti from '../../hooks/useNoti'
+import  useInusual from '../../hooks/useInusual'
+import AlertaInusual from '../AlertaInusual'
+import Navbar from '../Navbar'
 
 const drawerWidth = 240;
 export default function MenuIzq2 ({children}) {
