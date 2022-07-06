@@ -33,11 +33,11 @@ useEffect(() => {
      declarar()
      inusuales()
 
-   } else{
+   }/*  else{
 
       navigate('/login')
      
-   }
+   } */
   
 
 
