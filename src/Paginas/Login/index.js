@@ -168,7 +168,7 @@ const Login = () => {
             </form>
             <Typography >
               <Link href="#" >
-                Forgot password ?
+               Olvidaste la contraseña?
               </Link>
             </Typography>
             <Typography > Do you have an account ?

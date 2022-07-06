@@ -1,5 +1,5 @@
 import axios from 'axios'
-const  baseUrl = '3.92.223.19:8080/nivel3/'
+const  baseUrl = '3.92.223.19:4000/nivel3/'
 
 const agregariccgral= async  (datos) => {
    
