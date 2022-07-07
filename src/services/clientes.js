@@ -12,7 +12,7 @@ const crear= async  (datos) => {
 
 const lista= async  () => {
    
-    const {data } = await axios.get('http://3.92.223.19:4000/prueba')
+    const {data } = await axios.get('https://n9.cl/19qqt/prueba')
 
     
     return data 
