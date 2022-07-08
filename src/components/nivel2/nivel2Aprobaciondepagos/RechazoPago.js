@@ -30,7 +30,8 @@ export default function FormDialog(props) {
 
   const rechazar =async (id)  => {
      await servicioPagos.rechazararpago(form)
-     setOpen(false);
+     setOpen(false)
+     window.location.reload(true);
 
   // window.location.reload(true)
   }

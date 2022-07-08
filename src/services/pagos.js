@@ -1,5 +1,5 @@
 import axios from 'axios'
-const  baseUrl = 'http://localhost:4000/'
+const  baseUrl = 'https://3.92.223.19:8000/'
 
 const pagar= async  (pago) => {
    console.log(pago)

@@ -45,6 +45,7 @@ const TablaAprobaciones = () => {
            
             <BotonRechazo 
              id= {pendientes[dataIndex].id} 
+            
             />
             <CheckIcon style={{ cursor: "pointer" }} 
             onClick={() =>  {aprobar(pendientes[dataIndex].id) 
