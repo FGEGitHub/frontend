@@ -1,5 +1,5 @@
 import axios from 'axios'
-const  baseUrl = 'http://3.92.223.19:4000/pagos/'
+const  baseUrl = 'http://localhost:4000/pagos/'
 
 const buscar= async  (form) => {
    console.log(form)

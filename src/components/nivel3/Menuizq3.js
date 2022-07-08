@@ -66,7 +66,7 @@ export default function MenuIzq2 ({children}) {
         {
           text: 'Pagos Inusuales',
           icon: <AccountBalanceIcon color="primary" />,
-          path: '/usuario2/pagosinusuales'
+          path: '/nivel3/pagosinusuales'
         },
         {
           text: 'Aprobación de Legajos',

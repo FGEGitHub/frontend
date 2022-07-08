@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import MUIDataTable from "mui-datatables";
-import servicioAprobacionesPagos from '../../services/pagos'
+import servicioAprobacionesPagos from '../../../services/pagos'
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import CheckIcon from '@mui/icons-material/Check';
-import BotonRechazo from '../RechazoPago'
+import BotonRechazo from './RechazoPago'
 //import overbookingData from "./overbooking";
 
 const TablaAprobaciones = () => {
@@ -33,8 +33,8 @@ const TablaAprobaciones = () => {
     useEffect(() => {
         getPendientes()
     }, [])
-
-    ///
+  
+    
 
 
 
@@ -80,8 +80,20 @@ const TablaAprobaciones = () => {
             label: "Monto",
         },
         {
-            name: "estado",
+            name: "descripcion",
             label: "Estado",
+        },
+        {
+            name: "cuil_cuit_distinto",
+            label: "Cuil/Cuit Distinto",
+        },
+        {
+            name: "monto_distinto",
+            label: "Monto Distinto",
+        },
+        {
+            name: "monto_inusual",
+            label: "Monto Inusual",
         },
         {
             name: "Actions",

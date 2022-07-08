@@ -3,7 +3,7 @@ import  { useEffect, useState } from "react";
 
 import BarraLAteral from '../../../components/nivel2/MenuIzq2'
 import { useNavigate } from "react-router-dom";
-import TablaAprobacionesPagos from '../../../components/nivel2/TablaAprobacionesPagos';
+import TablaAprobacionesPagos from '../../../components/nivel2/nivel2Aprobaciondepagos/TablaAprobacionesPagos';
 
 const drawerWidth = 240;
 
