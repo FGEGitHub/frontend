@@ -7,7 +7,7 @@ import Cards from '../../../components/usuario1/Cards'
 import Faq from '../../../components/usuario1/Faq'
 import Navbar from '../../../components/usuario1/Navbar1'
 import Notificaciones from '../../../components/usuario1/Notificaciones'
-
+import  useUser from '../../../hooks/useUser'
 
 
 
@@ -15,6 +15,7 @@ import Notificaciones from '../../../components/usuario1/Notificaciones'
 
 export default function MenuUsuario2() {
 
+    const usuario  = useUser().userContext
 
 
     return (
@@ -23,7 +24,9 @@ export default function MenuUsuario2() {
 
 
                 <Navbar /> 
-                <Notificaciones />
+                <br/><br/><br/><br/>
+                <Notificaciones 
+                    />  
                 <Banner />
                 <Cards />
                 <Faq />
