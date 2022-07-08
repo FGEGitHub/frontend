@@ -1,9 +1,10 @@
 import React from 'react';
 import image from "../../Assets/undraw_under_construction_-46-pa.svg";
 import "./Banner.css";
-
+import Notificaciones from './Notificaciones'
 const Banner = () => {
-    return (
+    return ( 
+       
         <div className="contaniner_all">
             <div className="cover">
                 <div className="container_cover">
